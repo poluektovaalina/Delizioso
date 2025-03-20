@@ -1,0 +1,146 @@
+@font-face {
+    font-family: "Roleway-Bold";
+    src: url(../font/Roleway/Raleway-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Poppins-Regular";
+    src: url(../font/Poppins/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Poppins-Medium";
+    src: url(../font/Poppins/Poppins-Medium.ttf);
+}
+
+
+.container{
+    display: flex;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.firstgroup{
+    width: 50%;
+    display: block;
+    flex-direction: column;
+
+    .logo{
+        padding-left: 39px;
+        padding-top: 39px;
+    }
+}
+
+.secondGroup{
+    width: 50%;
+    img{
+        width: 125%;
+    }
+}
+
+.titleGroup{
+    padding-left: 111px;
+    padding-top: 82px;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    .title{
+        font-family: "Roleway-Bold";
+        font-size: 2.5rem;
+        color: #311F09;
+    }
+    span{
+        font-family: "Poppins-Regular";
+        font-size: 0.875rem;
+        color: #5C4529;
+        .blue{
+            font-family: "Poppins-Medium";
+            font-size: 0.875rem;
+            color: #0094FF;
+        }
+    }
+}
+
+.inputGroup{
+    padding-left: 111px;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .fulName,
+    .emailAddress,
+    .Password{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        .title{
+            color: #311F09;
+            font-family: "Poppins-Medium";
+            font-size: 0.875rem;
+        }
+        input{
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            background-color: #FAFAF9;
+            padding: 19px 30px;
+            color: #311F09;
+            font-family: "Poppins-Regular";
+            font-size: 0.875rem;
+
+        }
+    }
+}
+
+.rememberMe{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 111px;
+    padding-top: 30px;
+    .groupRemember{
+        
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        input{
+            outline: none;
+            border: 1px solid #DCD4CB;
+            width: 25.3px;
+            height: 25.3px;
+            border-radius: 8px;
+            -webkit-appearance: none;
+            outline: none;
+            cursor: pointer;
+        }
+        span{
+            font-family: "Poppins-Regular";
+            font-size: 0.875rem;
+            color: #5C4529;
+        }
+    }
+    .forgetPassword{
+        a{
+            font-family: "Poppins-Regular";
+            font-size: 0.875rem;
+            color: #5C4529;
+        }
+    }
+}
+
+.logInBtn{
+    
+    span{
+        background-color: #FF8A00;
+        font-family: "Poppins-Regular";
+        font-size: 0.875rem;
+        color: #fff;
+        padding: 19px 180px;
+        border-radius: 10px;
+        margin-left: 111px;
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
