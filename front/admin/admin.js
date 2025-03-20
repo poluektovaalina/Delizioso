@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const baseURL = 'http://localhost:4000/api/adminRoutes';
   const addDishForm = document.getElementById('addDishForm');
   const dishList = document.getElementById('dishList');
   const editModal = document.getElementById('editModal');
@@ -7,14 +8,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentEditDishId = null;
 
-  async function getAllFoods() {
+  async function fetchDishes(action, bodyData = {}) {
     try {
-      const response = await fetch('/api/dishes');
-      const dishes = await response.json();
-      displayDishes(dishes);
+      const response = await fetch(baseURL + '/getDishes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action, ...bodyData })
+      });
+      if (!response.ok) throw new Error('Failed to fetch dishes');
+      return await response.json();
     } catch (error) {
-      console.error('Error loading dishes:', error);
+      console.error('Error:', error);
+      Swal.fire('Error', error.message, 'error');
     }
+  }
+
+  async function getAllFoods() {
+    const dishes = await fetchDishes('getAll');
+    displayDishes(dishes);
   }
 
   function displayDishes(dishes) {
@@ -28,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <strong>${dish.name}</strong>
           <p>${dish.description}</p>
           <span>$${dish.price}</span>
+          <img src="${dish.imageUrl}" alt="${dish.name}" class="h-20 w-20 object-cover mt-2">
         </div>
         <div>
           <button class="editDish bg-blue-500 text-white px-4 py-2 rounded">Edit</button>
@@ -40,22 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   addDishForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name = document.getElementById('dishName').value;
-    const price = document.getElementById('dishPrice').value;
-    const description = document.getElementById('dishDescription').value;
-    try {
-      const response = await fetch('/api/dishes', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, price, description })
-      });
-      if (!response.ok) throw new Error('Failed to add dish');
-      Swal.fire('Success', 'Dish added successfully', 'success');
-      addDishForm.reset();
-      getAllFoods();
-    } catch (error) {
-      Swal.fire('Error', error.message, 'error');
-    }
+    const dishData = {
+      name: addDishForm.dishName.value,
+      price: addDishForm.dishPrice.value,
+      description: addDishForm.dishDescription.value,
+      imageUrl: addDishForm.dishImageUrl.value,
+    };
+    await fetchDishes('add', dishData);
+    Swal.fire('Success', 'Dish added successfully', 'success');
+    addDishForm.reset();
+    getAllFoods();
   });
 
   dishList.addEventListener('click', async (e) => {
@@ -64,52 +70,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const dishId = li.dataset.id;
 
     if (e.target.classList.contains('deleteDish')) {
-      if (confirm('Delete this dish?')) {
-        try {
-          const res = await fetch(`/api/dishes/${dishId}`, { method: 'DELETE' });
-          if (!res.ok) throw new Error('Failed to delete dish');
-          Swal.fire('Deleted', 'Dish deleted successfully', 'success');
-          getAllFoods();
-        } catch (error) {
-          Swal.fire('Error', error.message, 'error');
-        }
-      }
+      await fetchDishes('delete', { dishId });
+      Swal.fire('Deleted', 'Dish deleted successfully', 'success');
+      getAllFoods();
     }
 
     if (e.target.classList.contains('editDish')) {
       currentEditDishId = dishId;
-      try {
-        const res = await fetch(`/api/dishes/${dishId}`);
-        const dish = await res.json();
-        document.getElementById('editDishName').value = dish.name;
-        document.getElementById('editDishDescription').value = dish.description;
-        document.getElementById('editDishPrice').value = dish.price;
-        editModal.classList.remove('hidden'); 
-      } catch (error) {
-        Swal.fire('Error', error.message, 'error');
-      }
+      const dish = await fetchDishes('getOne', { dishId });
+      editDishForm.editDishName.value = dish.name;
+      editDishForm.editDishDescription.value = dish.description;
+      editDishForm.editDishPrice.value = dish.price;
+      editDishForm.editDishImageUrl.value = dish.imageUrl;
+      editModal.classList.remove('hidden');
     }
   });
 
- 
   editDishForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name = document.getElementById('editDishName').value;
-    const description = document.getElementById('editDishDescription').value;
-    const price = document.getElementById('editDishPrice').value;
-    try {
-      const res = await fetch(`/api/dishes/${currentEditDishId}`, {
-        method: 'POST', 
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, description, price })
-      });
-      if (!res.ok) throw new Error('Failed to update dish');
-      Swal.fire('Updated', 'Dish updated successfully', 'success');
-      editModal.classList.add('hidden');
-      getAllFoods();
-    } catch (error) {
-      Swal.fire('Error', error.message, 'error');
-    }
+    const updatedDish = {
+      id: currentEditDishId,
+      name: editDishForm.editDishName.value,
+      description: editDishForm.editDishDescription.value,
+      price: editDishForm.editDishPrice.value,
+      imageUrl: editDishForm.editDishImageUrl.value,
+    };
+    await fetchDishes('update', updatedDish);
+    Swal.fire('Updated', 'Dish updated successfully', 'success');
+    editModal.classList.add('hidden');
+    getAllFoods();
   });
 
   cancelEditBtn.addEventListener('click', () => {

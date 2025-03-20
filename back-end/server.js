@@ -4,6 +4,7 @@ const cors = require('cors')
 const sequelize = require('./src/config/db')
 
 const userRoutes = require('./src/routes/userRoutes.js')
+const adminRoutes = require('./src/routes/adminRoutes.js')
 
 
 const app = express()
@@ -15,6 +16,7 @@ app.use(cors())
 
 
 app.use('/api/userRoutes', userRoutes)
+app.use('/api/adminRoutes', adminRoutes)
 
 const PORT = process.env.PORT || 3000
 

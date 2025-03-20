@@ -14,7 +14,7 @@ exports.getDishById = async (req, res) => {
     const { id } = req.body;
     const dish = await Dish.findByPk(id);
     if (!dish) {
-      return res.status(404).json({ message: 'Блюдо не найдено' });
+      return res.status(404).json({ message: 'Dish not found' });
     }
     res.json(dish);
   } catch (error) {
@@ -24,8 +24,8 @@ exports.getDishById = async (req, res) => {
 
 exports.createDish = async (req, res) => {
   try {
-    const { name, description, price } = req.body;
-    const newDish = await Dish.create({ name, description, price });
+    const { name, description, price, imageUrl } = req.body;
+    const newDish = await Dish.create({ name, description, price, imageUrl });
     res.status(201).json(newDish);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -34,12 +34,12 @@ exports.createDish = async (req, res) => {
 
 exports.updateDish = async (req, res) => {
   try {
-    const { id, name, description, price } = req.body;
+    const { id, name, description, price, imageUrl } = req.body;
     const dish = await Dish.findByPk(id);
     if (!dish) {
-      return res.status(404).json({ message: 'Блюдо не найдено' });
+      return res.status(404).json({ message: 'Dish not found' });
     }
-    await dish.update({ name, description, price });
+    await dish.update({ name, description, price, imageUrl });
     res.json(dish);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -51,7 +51,7 @@ exports.deleteDish = async (req, res) => {
     const { id } = req.body;
     const dish = await Dish.findByPk(id);
     if (!dish) {
-      return res.status(404).json({ message: 'Блюдо не найдено' });
+      return res.status(404).json({ message: 'Dish not found' });
     }
     await dish.destroy();
     res.status(204).send();
