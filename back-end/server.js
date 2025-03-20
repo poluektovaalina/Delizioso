@@ -32,7 +32,6 @@ const start = async () => {
 
     } catch (error) {
         console.log("Ошибка: " + error.message);
-
     }
 }
 

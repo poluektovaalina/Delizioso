@@ -11,14 +11,22 @@ const getAllUsers = async (req, res) => {
 
 const registerUser = async (req, res) => {
     try {
-        const { email, first_name, password } = req.body
-        console.log(email, password, first_name)
-        const user = await User.create({ email, first_name, password })
-        res.status(201).json(user)
+        const { email, name, password } = req.body;
+        console.log(email, password, name);
+
+      
+        const findOneEmail = await User.findOne({ where: { email } });
+        if (findOneEmail) {
+            return res.status(400).json({ message: 'Email already in use' });
+        }
+
+        const user = await User.create({ email, name, password });
+        res.status(201).json(user);
     } catch (error) {
-        res.status(500).json({ error: error.message })
+        res.status(500).json({ error: error.message });
     }
-}
+};
+
 
 const loginUser = async (req, res) => {
     try {
