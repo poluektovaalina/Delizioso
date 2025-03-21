@@ -5,87 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Admin Panel</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css">
   <script src="./admin.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    .fade-in { animation: fadeIn 0.3s ease-out; }
+    .fade-out { animation: fadeOut 0.3s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+    .input-error { border-color: #e53e3e; }
+  </style>
 </head>
-
 <body class="bg-gray-50">
-
   <header class="bg-white shadow">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-      <div class="flex items-center space-x-4">
-        <img class="h-10 w-10" src="../front/img/svg/Logo Delizioso.svg" alt="Logo Delizioso">
-        <h1 class="text-3xl font-bold text-gray-900">Admin Panel</h1>
-      </div>
-      <div>
-        <a href="../signIn/signIn.html" class="text-blue-500 hover:text-blue-700 font-semibold">Log out</a>
-      </div>
+      <h1 class="text-3xl font-bold text-gray-900">Admin Panel</h1>
+      <a href="../signIn/signIn.html" class="text-blue-500 hover:text-blue-700 font-semibold">Log out</a>
+      <a href="../menu/menu.html" class="text-blue-500 hover:text-blue-700 font-semibold">Menu</a>
     </div>
   </header>
-
-
   <main class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
-    
     <section class="mb-10">
       <div class="bg-white shadow rounded-lg p-6">
         <h2 class="text-2xl font-bold text-gray-800 mb-4">Add New Dish</h2>
         <form id="addDishForm" class="space-y-4">
-          <div>
-            <label for="dishName" class="block text-sm font-medium text-gray-700">Dish Name</label>
-            <input type="text" id="dishName" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-[#FF8A00] focus:border-[#FF8A00]" placeholder="Dish Name" required>
-          </div>
-          <div>
-            <label for="dishPrice" class="block text-sm font-medium text-gray-700">Price</label>
-            <input type="number" id="dishPrice" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-[#FF8A00] focus:border-[#FF8A00]" placeholder="Price" required>
-          </div>
-          <div>
-            <label for="dishDescription" class="block text-sm font-medium text-gray-700">Description</label>
-            <textarea id="dishDescription" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-[#FF8A00] focus:border-[#FF8A00]" placeholder="Description" required></textarea>
-          </div>
-          <div>
-            <button type="submit" class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#FF8A00] hover:bg-[#e07a00] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8A00]">
-              Add Dish
-            </button>
-          </div>
+          <input type="text" id="dishName" placeholder="Dish Name" required class="w-full border rounded p-2">
+          <input type="number" id="dishPrice" placeholder="Price" required class="w-full border rounded p-2">
+          <textarea id="dishDescription" placeholder="Description" required class="w-full border rounded p-2"></textarea>
+          <input type="text" id="dishImageUrl" placeholder="Image URL" required class="w-full border rounded p-2">
+          <button type="submit" class="w-full bg-[#FF8A00] text-white p-2 rounded">Add Dish</button>
         </form>
       </div>
     </section>
-
-
     <section>
       <div class="bg-white shadow rounded-lg p-6">
         <h2 class="text-2xl font-bold text-gray-800 mb-4">Dish List</h2>
-        <ul id="dishList" class="divide-y divide-gray-200">
-      
-        </ul>
+        <ul id="dishList" class="divide-y divide-gray-200"></ul>
       </div>
     </section>
   </main>
-
-
-  <div id="editModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
-    <div class="bg-white rounded-lg p-6 w-96">
-      <h3 class="text-xl font-bold mb-4">Edit Dish</h3>
+  <div id="editModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center fade-in">
+    <div class="bg-white p-6 rounded-lg w-1/2">
+      <h2 class="text-xl font-bold mb-4">Edit Dish</h2>
       <form id="editDishForm" class="space-y-4">
-        <div>
-          <label for="editDishName" class="block text-sm font-medium text-gray-700">Dish Name</label>
-          <input type="text" id="editDishName" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
-        </div>
-        <div>
-          <label for="editDishDescription" class="block text-sm font-medium text-gray-700">Description</label>
-          <textarea id="editDishDescription" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required></textarea>
-        </div>
-        <div>
-          <label for="editDishPrice" class="block text-sm font-medium text-gray-700">Price</label>
-          <input type="number" id="editDishPrice" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
-        </div>
+        <input type="text" id="editDishName" placeholder="Dish Name" required class="w-full border rounded p-2">
+        <textarea id="editDishDescription" placeholder="Description" required class="w-full border rounded p-2"></textarea>
+        <input type="number" id="editDishPrice" placeholder="Price" required class="w-full border rounded p-2">
+        <input type="text" id="editDishImageUrl" placeholder="Image URL" required class="w-full border rounded p-2">
         <div class="flex justify-end space-x-2">
-          <button type="button" id="cancelEdit" class="px-4 py-2 bg-gray-300 rounded">Cancel</button>
-          <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded">Update</button>
+          <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Save</button>
+          <button type="button" id="cancelEdit" class="bg-gray-500 text-white px-4 py-2 rounded">Cancel</button>
         </div>
       </form>
     </div>
   </div>
+  <script>
+    const inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('invalid', () => input.classList.add('input-error'));
+      input.addEventListener('input', () => input.classList.remove('input-error'));
+    });
+
+    const editModal = document.getElementById('editModal');
+    const cancelEdit = document.getElementById('cancelEdit');
+
+    cancelEdit.addEventListener('click', () => {
+      editModal.classList.add('fade-out');
+      setTimeout(() => {
+        editModal.classList.add('hidden');
+        editModal.classList.remove('fade-out');
+      }, 300);
+    });
+  </script>
 </body>
 </html>

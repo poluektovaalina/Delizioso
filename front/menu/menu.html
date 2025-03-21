@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delizioso Menu</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="./menu.js" defer></script>
+</head>
+<body class="bg-gray-50">
+
+  <header class="flex items-center justify-between px-10 py-8 bg-white shadow">
+    <div class="flex items-center space-x-4">
+      <div class="p-2">
+        <img class="w-10 h-10" src="../img/svg/Logo%20Delizioso.svg" alt="logo">
+      </div>
+      <span class="text-xl font-bold">Delizi</span>
+      <span class="font-bold text-[#FF8A00] text-xl">oso</span>
+    </div>
+    <nav class="flex items-center gap-8 text-gray-700 font-semibold">
+      <span class="hover:text-[#FF8A00] transition cursor-pointer">Home</span>
+      <span class="hover:text-[#FF8A00] transition cursor-pointer">Menu</span>
+      <span class="hover:text-[#FF8A00] transition cursor-pointer">About us</span>
+      <span class="hover:text-[#FF8A00] transition cursor-pointer">Order online</span>
+      <span class="hover:text-[#FF8A00] transition cursor-pointer">Reservation</span>
+      <span class="hover:text-[#FF8A00] transition cursor-pointer">Contact us</span>
+    </nav>
+    <div class="flex items-center gap-4">
+      <div class="rounded-full bg-gray-100 p-2 cursor-pointer hover:bg-gray-200 transition">
+        <img class="w-8" src="../img/svg/Cart.svg" alt="cart">
+      </div>
+      <button class="bg-green-500 rounded-full px-10 py-3 text-white hover:bg-green-600 transition">
+        Log in
+      </button>
+      <button class="bg-[#FF8A00] rounded-full px-6 py-3 text-white   admin">
+        Admin Panel
+      </button>
+    </div>
+  </header>
+
+
+  <div class="py-10 flex items-center justify-center">
+    <img src="../img/svg/Menu.svg" alt="Menu Icon" class="w-32 h-32">
+  </div>
+
+  <div class="flex justify-center gap-4 mb-10">
+    <button class="bg-[#311F09] rounded-full px-8 py-4 text-white font-semibold allCategory">All category</button>
+    <button class="bg-[#D0CCC7] rounded-full px-8 py-4 font-semibold">Dinner</button>
+    <button class="bg-[#D0CCC7] rounded-full px-8 py-4 font-semibold">Lunch</button>
+    <button class="bg-[#D0CCC7] rounded-full px-8 py-4 font-semibold">Dessert</button>
+    <button class="bg-[#D0CCC7] rounded-full px-8 py-4 font-semibold">Drink</button>
+  </div>
+
+  <!-- Dishes Grid -->
+  <div class="allFoods max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10">
+  
+  </div>
+
+
+  <div class="flex justify-center space-x-2 mb-10">
+    <button class="px-4 py-2 bg-gray-400 text-gray-700 rounded"> &lt; </button>
+    <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded">1</button>
+    <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded">2</button>
+    <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded">3</button>
+    <span class="px-4 py-2">...</span>
+    <button class="px-4 py-2 bg-gray-400 text-gray-700 rounded"> &gt; </button>
+  </div>
+</body>
+</html>

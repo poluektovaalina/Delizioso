@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const dishController = require('../controllers/dishController');
+const adminController = require('../controllers/adminControllers');
 
-router.post('/getDishes', dishController.getDishes);
-router.post('/getDishById', dishController.getDishById);
-router.post('/createDish', dishController.createDish);
-router.post('/updateDish', dishController.updateDish);
-router.post('/deleteDish', dishController.deleteDish);
+router.post('/getDishes', adminController.getDishes);
+router.post('/getDishById', adminController.getDishById);
+router.post('/createDish', adminController.createDish);
+router.post('/updateDish', adminController.updateDish);
+router.post('/deleteDish', adminController.deleteDish);
 
 module.exports = router;
