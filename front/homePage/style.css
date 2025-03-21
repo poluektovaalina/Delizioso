@@ -4,6 +4,11 @@
 }
 
 @font-face {
+    font-family: "Roleway-Regular";
+    src: url(../font/Roleway/Raleway-Regular.ttf);
+}
+
+@font-face {
     font-family: "Poppins-Regular";
     src: url(../font/Poppins/Poppins-Regular.ttf);
 }
@@ -13,134 +18,148 @@
     src: url(../font/Poppins/Poppins-Medium.ttf);
 }
 
+@font-face {
+    font-family: "Poppins-SemiBold";
+    src: url(../font/Poppins/Poppins-SemiBold.ttf);
+}
+
 
 .container{
     display: flex;
-    max-width: 1440px;
+    flex-direction: column;
+    max-width: 1125px;
     margin: 0 auto;
+    width: 100%;
 }
 
-.firstgroup{
-    width: 50%;
-    display: block;
-    flex-direction: column;
-
-    .logo{
-        padding-left: 39px;
-        padding-top: 39px;
-    }
-}
-
-.secondGroup{
-    width: 50%;
-    img{
-        width: 125%;
-    }
-}
-
-.titleGroup{
-    padding-left: 111px;
-    padding-top: 82px;
+.header{
     display: flex;
-    flex-direction: column;
-    gap: 17px;
-    .title{
-        font-family: "Roleway-Bold";
-        font-size: 2.5rem;
-        color: #311F09;
-    }
-    span{
-        font-family: "Poppins-Regular";
-        font-size: 0.875rem;
-        color: #5C4529;
-        .blue{
-            font-family: "Poppins-Medium";
-            font-size: 0.875rem;
-            color: #0094FF;
-        }
-    }
-}
-
-.inputGroup{
-    padding-left: 111px;
-    padding-top: 50px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    .fulName,
-    .emailAddress,
-    .Password{
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        .title{
-            color: #311F09;
-            font-family: "Poppins-Medium";
-            font-size: 0.875rem;
-        }
-        input{
-            outline: none;
-            border: none;
-            border-radius: 10px;
-            background-color: #FAFAF9;
-            padding: 19px 30px;
-            color: #311F09;
-            font-family: "Poppins-Regular";
-            font-size: 0.875rem;
-
-        }
-    }
-}
-
-.rememberMe{
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding-left: 111px;
-    padding-top: 30px;
-    .groupRemember{
-        
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        input{
-            outline: none;
-            border: 1px solid #DCD4CB;
-            width: 25.3px;
-            height: 25.3px;
-            border-radius: 8px;
-            -webkit-appearance: none;
-            outline: none;
-            cursor: pointer;
-        }
-        span{
-            font-family: "Poppins-Regular";
-            font-size: 0.875rem;
-            color: #5C4529;
+    justify-content: space-between;
+    width: 100%;
+    padding: 52px 13px;
+    .header-menu{
+        ul{
+            display: flex;
+            gap: 45px;
+            li{
+                list-style-type: none;
+                span{
+                    font-family: "Poppins-Regular";
+                    font-size: 0.875rem;
+                    color: #311F09;
+                    &:hover{
+                        color: #FF8A00;
+                        cursor: pointer;
+                        transition: all .4s ease;
+                    }
+                }
+            }
         }
     }
-    .forgetPassword{
-        a{
-            font-family: "Poppins-Regular";
-            font-size: 0.875rem;
-            color: #5C4529;
+    .leftGroup{
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        .cart{
+            background-color: #FAFAF9;
+            border-radius: 100%;
+            min-width: 40px;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            svg{
+                size: 24px;
+                fill: transparent;
+                
+                path{
+                    stroke: #311F09;
+                }
+                circle{
+                    stroke: #311F09;
+                }
+            }
+            &:hover{
+                transition: all .4s ease;
+                cursor: pointer;
+                background-color: #3FA72F;
+                svg{
+                    size: 24px;
+                    fill: transparent;
+                    
+                    path{
+                        stroke: #fff;
+                    }
+                    circle{
+                        stroke: #fff;
+                    }
+                }
+            }
+        }
+        .logInbtnHome{
+            span{
+                padding: 15px 36px;
+                border-radius: 133px;
+                background-color: #3FA72F;
+                font-family: "Poppins-SemiBold";
+                color: #fff;
+                font-size: 0.875rem;
+            }
         }
     }
 }
 
-.signUpBtn{
-    
-    span{
-        background-color: #FF8A00;
-        font-family: "Poppins-Regular";
-        font-size: 0.875rem;
-        color: #fff;
-        padding: 19px 180px;
-        border-radius: 10px;
-        margin-left: 111px;
-        margin-top: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+.baner{
+    padding-top: 112px;
+    .groupText{
+        .stiker{
+            padding-bottom: 40px;
+            
+            span{
+                color: #FF8A00;
+                background-color: #FFE8CC;
+                padding: 10px 34px;
+                border-radius: 126px;
+                font-family: "Roleway-Regular";
+                font-size: 1.125rem;
+            }
+        }
+        .title{
+            padding-left: 13px;
+            span{
+                display: block;
+                color: #311F09;
+                font-size: 5rem;
+                line-height: 110%;
+                font-family: "Roleway-Bold";
+                width: 25%;
+            }
+        }
+        .desc{
+            width: 46%;
+            padding-top: 40px;
+            color: #5C4529;
+            font-size: 1.25rem;
+            font-family: "Poppins-Regular";
+        }
+        .groupBtn{
+            display: flex;
+            .btnOrder{
+                font-size: 1.25%;
+                color: #fff;
+                padding: 17px 67px;
+                background-color: #FF8A00;
+                border-radius: 162px;
+            }
+            .btnReserv{
+                border-radius: 162px;
+                font-size: 1.25%;
+                color: #fff;
+                padding: 17px 67px;
+                background-color: #3FA72F;
+
+            }
+        }
     }
 }
