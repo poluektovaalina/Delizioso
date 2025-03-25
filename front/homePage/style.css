@@ -163,3 +163,243 @@
         }
     }
 }
+
+.menu{
+    .title{
+        color: #311F09;
+        padding-bottom: 60px;
+        font-size: 5rem;
+        display: flex;
+        justify-content: center;
+    }
+    .catagory{ 
+        display: flex;
+        gap: 36px;
+        span{
+            font-family: "Poppins-SemiBold";
+            font-size: 1.25rem;
+            color: #311F09;
+            padding: 17px 54px;
+            background-color: #FAFAF9;
+            border-radius: 126px;
+        }
+    }
+    .menuCatalog{
+        padding-top: 60px;
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        .item{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 37px 29px;
+            background-color: #FAFAF9;
+            max-width: 270px;
+            border-radius: 70px;
+            .imagge{
+                padding-bottom: 24px;
+                img{
+                    border-radius: 100%;
+                }
+            }
+            .title{
+                color: #311F09;
+                font-size: 1.875rem;
+                font-family: "Poppins-SemiBold";
+                padding-bottom: 10px;
+            }
+            .stars{
+                display: flex;
+                gap: 10px;
+                padding-bottom: 15px;
+            }
+            .desc{
+                font-family: "Poppins-Regular";
+                color: #59442B;
+                font-size: 0.875rem;
+                text-align: center;
+                width: 109%;
+                padding-bottom: 30px;
+            }
+            .priceOrder{
+                display: flex;
+                align-items: center;
+                gap: 34px;
+                .price{
+                    font-family: "Poppins-SemiBold";
+                    font-size: 1.5625rem;
+                    color: #311F09;
+                }
+                .btnOrder{
+                    font-family: "Poppins-SemiBold";
+                    font-size: 1rem;
+                    padding: 14px 36px;
+                    color: #fff;
+                    background-color: #FF8A00;
+                    border-radius: 162px;
+                }
+            }
+        }
+    }
+    .next{
+        justify-content: center;
+        padding-top: 88px;
+        display: flex;
+        gap: 30px;
+        .itemPrev,
+        .itemNext{
+            background-color: #311F09;
+            min-width: 55px;
+            min-height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            transition: all .4s ease;
+            &:hover{
+                box-shadow: 0px 0px 15px #311F09;
+                cursor: pointer;
+                transition: all .4s ease;
+            }
+        }
+        .numbers{
+            font-family: "Poppins-SemiBold";
+            background-color: #FFF3E6;
+            min-width: 55px;
+            min-height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            color: #FF8A00;
+            transition: all .4s ease;
+            &:hover{
+                box-shadow: 0px 0px 15px #FF8A00;
+                cursor: pointer;
+                transition: all .4s ease;
+            }
+        }
+        .tRy{
+            min-width: 55px;
+            min-height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        padding-bottom: 211px;
+    }
+}
+
+.reserve{
+    background-color: #FFFBF5;
+    display: flex;
+    align-items: center;
+    gap: 43px;
+    padding: 84px 0;
+    .imaggge{
+        width: 55%;
+        img{
+            width: 100%;
+        }
+    }
+    .groupText{
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        .title{
+            font-size: 5rem;
+            color: #311F09;
+            .orange{
+                color: #FF8A00;
+            }
+            padding-bottom: 50px;
+        }
+        .desc{
+            font-size: 1.25rem;
+            color: #5C4529;
+            line-height: 200%;
+            font-family: "Poppins-Regular";
+            padding-bottom: 135px;
+        }
+        .btnReserve{
+            font-family: "Poppins-SemiBold";
+            color: #fff;
+            font-size: 1.25rem;
+            padding: 17px 55px;
+            background-color: #FF8A00;
+            display: flex;
+            border-radius: 162px;
+        }
+    }
+}
+
+.chef{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .title{
+        color: #311F09;
+        padding-bottom: 60px;
+        font-size: 5rem;
+        display: flex;
+        justify-content: center;
+        padding-top: 175px;
+    }
+
+    .groupChef{
+        display: flex;
+        gap: 40px;
+        .item{
+            max-width: 344px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            .img{
+                background-color: #D1D0D2;
+                border-radius: 50px;
+                margin-bottom: 40px;
+                overflow: hidden;
+                
+                img{
+                    width: 100%;
+                    position: relative;
+                    bottom: -5px;
+                }
+                
+            }
+            &:nth-child(2){
+                .img{
+                background-color: #FFE8CC;
+                }
+            }
+            &:nth-child(3){
+                .img{
+                background-color: #EBE0D9;
+                }
+            }
+            .name{
+                color: #311F09;
+                font-family: "Poppins-SemiBold";
+                font-size: 1.5625rem;
+                padding: 0 0 30px 0;
+            }
+            .work{
+                color: #A08D76;
+                font-family: "Poppins-Regular";
+                font-size: 1.5625rem;
+            }
+        }
+    }
+    .btnView{
+        background-color: #FF8A00;
+        color: #fff;
+        font-size: 1.25rem;
+        border-radius: 162px;
+        padding: 17px 78px;
+        font-family: "Poppins-SemiBold";
+        margin: 150px 0px 271px 0;
+    }
+}
