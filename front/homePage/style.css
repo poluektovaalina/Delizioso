@@ -251,13 +251,15 @@
     }
 }
 
-.menu{
+.menuCatalog{
     .title{
         color: #311F09;
         padding-bottom: 60px;
         font-size: 5rem;
         display: flex;
         justify-content: center;
+        font-family: "Tinos-Bold";
+        padding-top: 164px;
     }
     .catagory{ 
         display: flex;
@@ -291,9 +293,10 @@
                 }
             }
             .title{
+                padding-top: 0;
                 color: #311F09;
                 font-size: 1.875rem;
-                font-family: "Poppins-SemiBold";
+                font-family: "Tinos-Bold";
                 padding-bottom: 10px;
             }
             .stars{
@@ -398,6 +401,7 @@
         align-items: start;
         .title{
             font-size: 5rem;
+            font-family: "Tinos-Bold";
             color: #311F09;
             .orange{
                 color: #FF8A00;
@@ -434,6 +438,7 @@
         display: flex;
         justify-content: center;
         padding-top: 175px;
+        font-family: "Tinos-Bold";
     }
 
     .groupChef{
@@ -489,4 +494,112 @@
         font-family: "Poppins-SemiBold";
         margin: 150px 0px 271px 0;
     }
+}
+
+.customers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(../img/png/Group\ 63.png);
+    overflow: hidden;
+    margin-bottom: 130px;
+    .title{
+        color: #311F09;
+        font-family: "Tinos-Bold";
+        font-size: 5rem;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 60px
+    }
+    .person{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .img{
+            width: max-content%;
+            img{
+                width: 100%;
+            }
+        }
+        .name{
+            font-family: "Poppins-SemiBold";
+            font-size: 1.875rem;
+            color: #311F09;
+            padding-top: 30px;
+        }
+        .work{
+            color: #5C4529;
+            font-size: 1.25rem;
+            font-family: "Poppins-Regular";
+
+        }
+    }
+    .desc{
+        color: #5C4529;
+        font-size: 1.25rem;
+        font-family: "Poppins-Regular";
+        text-align: center;
+        padding-top: 90px;
+        width: 49%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        &::after{
+            content: " ";
+            position: absolute;
+            background-image: url(../img/svg/“.svg);
+            width: 34px;
+            height: 25px;
+            background-repeat: no-repeat;
+            top: 15%;
+            left: -5%;
+            transform: translate(-50%, 50%);
+        }
+        &::before{
+            content: " ";
+            position: absolute;
+            background-image: url(../img/svg/“.svg);
+            width: 34px;
+            height: 25px;
+            background-repeat: no-repeat;
+            bottom: -25%;
+            right: -10%;
+            transform: translate(50%, 50%);
+            rotate: 180deg;
+        }
+    }
+    .swiper {
+        width: 100%;
+        max-width: 800px;
+        height: 300px;
+        overflow: visible;
+        padding-top: 100px;
+      }
+    
+      .swiper-wrapper {
+        display: flex;
+        align-items: center;
+      }
+    
+      .swiper-slide {
+        height: unset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: width 0.4s ease, opacity 0.4s ease;
+        width: 100px; /* Базовая ширина */
+        border-radius: 100%;
+        &.active{
+            border: 10px solid #FFF3E6;
+            padding: 10px;
+            background-color: #FFC98A;
+        }
+      }
+    
+      .swiper-slide img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
 }
