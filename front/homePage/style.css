@@ -23,6 +23,12 @@
     src: url(../font/Poppins/Poppins-SemiBold.ttf);
 }
 
+@font-face {
+    font-family: "Tinos-Bold";
+    src: url(../font/Tinos/Tinos-Bold.ttf);
+}
+
+
 
 .container{
     display: flex;
@@ -69,6 +75,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all .4s ease;
             svg{
                 size: 24px;
                 fill: transparent;
@@ -84,6 +91,7 @@
                 transition: all .4s ease;
                 cursor: pointer;
                 background-color: #3FA72F;
+                box-shadow: 0px 0px 15px #3FA72F;
                 svg{
                     size: 24px;
                     fill: transparent;
@@ -105,14 +113,22 @@
                 font-family: "Poppins-SemiBold";
                 color: #fff;
                 font-size: 0.875rem;
+                &:hover{
+                    cursor: pointer;
+                    transition: all .4s ease;
+                    box-shadow: 0px 0px 15px #3FA72F;
+                }
             }
         }
     }
 }
 
 .baner{
+    display: flex;
+
     padding-top: 112px;
     .groupText{
+        width: 50%;
         .stiker{
             padding-bottom: 40px;
             
@@ -137,28 +153,99 @@
             }
         }
         .desc{
-            width: 46%;
+            width: 93%;
             padding-top: 40px;
             color: #5C4529;
             font-size: 1.25rem;
             font-family: "Poppins-Regular";
         }
         .groupBtn{
+            padding-top: 80px;
             display: flex;
+            gap: 24px;
             .btnOrder{
-                font-size: 1.25%;
+                font-size: 1.25rem;
                 color: #fff;
                 padding: 17px 67px;
                 background-color: #FF8A00;
                 border-radius: 162px;
+                font-family: "Poppins-SemiBold";
+                transition: all .4s ease;
+                &:hover{
+                    cursor: pointer;
+                    transition: all .4s ease;
+                    box-shadow: 0px 0px 15px #c46800;
+                }
             }
             .btnReserv{
                 border-radius: 162px;
-                font-size: 1.25%;
+                font-size: 1.25rem;
                 color: #fff;
                 padding: 17px 67px;
                 background-color: #3FA72F;
+                font-family: "Poppins-SemiBold";
+                transition: all .4s ease;
+                &:hover{
+                    cursor: pointer;
+                    transition: all .4s ease;
+                    box-shadow: 0px 0px 15px #3FA72F;
+                }
+            }
+        }
+    }
+    .imgBanner{
+        width: 50%;
+        img{
+            width: 121%;
+        }
+    }
+}
 
+.menu{
+    padding: 188px 0;
+    background-color: #ECF9F0;
+    .group{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .imageMenu{
+            width: 50%;
+            img{
+                width: 121%;
+            }
+        }
+        .groupText{
+            width: 42%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            .title{
+                color: #311F09;
+                font-size: 5rem;
+                font-family: "Tinos-Bold";
+                margin-top: -20px;
+                .orange{
+                    color: #FF8A00;
+                }
+            }
+            .desc{
+                display: block;
+                padding: 60px 0 0 0;
+                color: #5C4529;
+                font-size: 1.25rem;
+                font-family:"Poppins-Regular";
+                width: 89%;
+            }
+            .btn{
+                padding: 17px 45px;
+                color: #fff;
+                background-color: #FF8A00;
+                font-family: "Poppins-SemiBold";
+                font-size: 1.25rem;
+                display: flex;
+                width: max-content;
+                border-radius: 162px;
+                margin-top: 82px;
             }
         }
     }
