@@ -33,7 +33,7 @@
 .container{
     display: flex;
     flex-direction: column;
-    max-width: 1125px;
+    max-width: 1440px;
     margin: 0 auto;
     width: 100%;
 }
@@ -252,6 +252,10 @@
 }
 
 .menuCatalog{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .title{
         color: #311F09;
         padding-bottom: 60px;
@@ -264,6 +268,7 @@
     .catagory{ 
         display: flex;
         gap: 36px;
+        justify-content: center;
         span{
             font-family: "Poppins-SemiBold";
             font-size: 1.25rem;
@@ -278,6 +283,9 @@
         display: flex;
         gap: 40px;
         flex-wrap: wrap;
+        justify-content: center;
+        max-width: 1125px;
+        flex-direction: row;
         .item{
             display: flex;
             align-items: center;
@@ -502,7 +510,7 @@
     align-items: center;
     background-image: url(../img/png/Group\63.png);
     overflow: hidden;
-    margin-bottom: 130px;
+    padding: 130px 0;
     .title{
         color: #311F09;
         font-family: "Tinos-Bold";
@@ -517,7 +525,7 @@
         align-items: center;
         flex-direction: column;
         .img{
-            width: max-content%;
+            width: max-content;
             img{
                 width: 100%;
             }
@@ -577,12 +585,12 @@
         padding-top: 100px;
       }
     
-      .swiper-wrapper {
+    .swiper-wrapper {
         display: flex;
         align-items: center;
-      }
-    
-      .swiper-slide {
+    }
+
+    .swiper-slide {
         height: unset;
         display: flex;
         align-items: center;
@@ -595,11 +603,173 @@
             padding: 10px;
             background-color: #FFC98A;
         }
-      }
-    
-      .swiper-slide img {
+    }
+
+    .swiper-slide img {
         width: 100%;
         object-fit: contain;
         border-radius: 10px;
-      }
+    }
+}
+
+.workTime{
+    padding: 238px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .block{
+        position: relative;
+        max-width: 1150px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        .imageg{
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            img{
+                width: 100%;
+            }
+        }
+        .title{
+            font-size: 5rem;
+            font-family: "Tinos-Bold";
+            color: #fff;
+        }
+        .theme{
+            font-size: 2.5rem;
+            font-family: "Poppins-SemiBold";
+            color: #fff;
+        }
+        .groupTime{
+            display: flex;
+            flex-direction: column;
+            span{
+                font-family: "Poppins-Regular";
+                font-size: 1.25rem;
+                color: #fff;
+                text-align: end;
+                line-height: 200%;
+            }
+        }
+        .groupBtn{
+            padding-top: 20px;
+            display: flex;
+            gap: 23px;
+            span{
+                font-family: "Poppins-SemiBold";
+                font-size: 1.25rem;
+                padding: 17px 62px;
+                border-radius: 162px;
+            }
+            .order{
+                background-color: #FF8A00;
+                color: #fff;
+                transition: all .4s ease;
+                &:hover{
+                    box-shadow: 0px 0px 15px #FF8A00;
+                    cursor: pointer;
+                    transition: all .4s ease;
+                }
+            }
+            .reserve{
+                background-color: #FFF;
+                color: #311F09;
+                &:hover{
+                    box-shadow: 0px 0px 15px #fff;
+                    cursor: pointer;
+                    transition: all .4s ease;
+                }
+            }
+        }
+    }
+}
+
+.footer{
+    background-color: #311F09;
+    .together{
+        padding: 140px 0 93px 0;
+        display: flex;
+        .firstGroup{
+            padding: 0 164px;
+            .desc{
+                font-family: "Poppins-Regular";
+                font-size: 1.25rem;
+                color: #fff;
+                max-width: 352px;
+                padding-top: 45px;
+                padding-bottom: 40px;
+            }
+            .social{
+                display: flex;
+                gap: 30px;
+                .twitter{
+                    min-width: 60px;
+                    min-height: 60px;
+                    border-radius: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #fff;
+                }
+                .inst{
+                    min-width: 60px;
+                    min-height: 60px;
+                    border-radius: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #fff;
+                }
+                .Fakebo{
+                    min-width: 60px;
+                    min-height: 60px;
+                    border-radius: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #fff;
+                }
+            }
+        }
+        .SecondGroup{
+            display: flex;
+            gap: 70px;
+            .groupText{
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                .title{
+                    line-height: 200%;
+                    color: #FF8A00;
+                    font-family: "Poppins-SemiBold";
+                    font-size: 1.5625rem;
+                }
+                .group{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    span{
+                        font-family: "Poppins-Regular";
+                        color: #E3E2E0;
+                        font-size: 1.25rem
+                    }
+                }
+            }
+        }
+    }
+    .TherdGroup{
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        padding-bottom: 74px;
+        span{
+            font-family: "Poppins-Regular";
+            color: #E3E2E0;
+            font-size: 1.25rem;
+        }
+    }
 }

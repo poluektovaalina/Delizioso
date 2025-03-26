@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="../homePage/homePage.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -341,114 +342,88 @@
                 </div>
             </div>
         </div>
+
+        <div class="workTime">
+            <div class="block">
+                <div class="imageg">
+                    <img src="../img/png/Background.png" alt="">
+                </div>
+                <div class="title">we are open from</div>
+                <div class="theme">Monday-Sunday</div>
+                <div class="groupTime">
+                    <span>Launch : Mon-Sun : 11:00am-02:00pm</span>
+                    <span>Dinner : sunday : 04:00pm-08:00pm</span>
+                    <span>04:00pm-09:00pm</span>
+                </div>
+                <div class="groupBtn">
+                    <span class="order">Order now</span>
+                    <span class="reserve">Reservation</span>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="together">
+                <div class="firstGroup">
+                    <div class="logo">
+                        <img src="../img/svg/LogoDeliziosoWhite.svg" alt="">
+                    </div>
+                    <div class="desc">
+                        Viverra gravida morbi egestas facilisis tortor netus non duis tempor. 
+                    </div>
+                    <div class="social">
+                        <div class="twitter">
+                            <img src="../img/svg/twitter.svg" alt="">
+                            </div>
+                        <div class="inst">
+                            <img src="../img/svg/instagram.svg" alt="">     
+                        </div>
+                        <div class="Fakebo">
+                            <img src="../img/svg/facebook.svg" alt="">                         
+                        </div>
+                    </div>
+                </div>
+                <div class="SecondGroup">
+                    <div class="groupText">
+                        <div class="title">Page</div>
+                        <div class="group">
+                            <span>Home</span>
+                            <span>Menu</span>
+                            <span>Order online</span>
+                            <span>Catering</span>
+                            <span>Reservation</span>
+                        </div>
+                    </div>
+                    <div class="groupText">
+                        <div class="title">Information</div>
+                        <div class="group">
+                            <span>About us</span>
+                            <span>Testimonial</span>
+                            <span>Event</span>
+                        </div>
+                    </div>
+                    <div class="groupText">
+                        <div class="title">Get in touch</div>
+                        <div class="group">
+                            <span>3247 Johnson Ave, Bronx, NY<br>10463, Amerika Serikat</span>
+                            <span>delizioso@gmail.com</span>
+                            <span>+123 4567 8901</span>
+                            <span>Catering</span>
+                            <span>Reservation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="TherdGroup">
+                <span>Copyright</span>
+                <div class="imgC">
+                    <img src="../img/svg/Icon.svg" alt="">
+                </div>
+                <span>2022 Delizioso</span>
+            </div>
+        </footer>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-  var swiper = new Swiper(".mySwiper", {
 
-    centeredSlides: true,
-    slidesPerView: "auto",
-    spaceBetween: 55,
-    on: {
-    init: function () {
-      updateSlideSize();
-    },
-    slideChangeTransitionEnd: function () {
-      updateSlideSize();
-      smileSlide();
-      bigSlide();
-    }
-  }
-  });
-
-  function updateSlideSize() {
-    let slides = document.querySelectorAll(".swiper-slide");
-    let centerIndex = Math.floor(slides.length / 2);
-
-    slides.forEach((slide, index) => {
-      let distance = Math.abs(index - centerIndex);
-      let scale = 1.5 - distance * 0.15;
-      if (scale < 0.5) scale = 0.0; // Минимальный размер
-      slide.style.transform = `scale(${scale})`;
-    });
-  }
-
-  function smileSlide() {
-  let slides = document.querySelectorAll(".swiper-slide");
-  let activeIndex = swiper.realIndex; // Получаем индекс центрального слайда
-
-  slides.forEach((slide, index) => {
-    let distance = Math.abs(index - activeIndex);
-    let targetMarginBottom = 0; // Базовое значение
-
-    if (distance === 1) {
-      targetMarginBottom = 60; // 1 уровень от центра
-    } else if (distance === 2) {
-      targetMarginBottom = 160; // 2 уровень от центра
-    } else if (distance === 3) {
-      targetMarginBottom = 310; // 3 уровень от центра
-    }
-
-    animateMargin(slide, targetMarginBottom, 600); // 600ms = 0.6s
-  });
-}
-
-function animateMargin(element, targetMargin, duration) {
-  let start = null;
-  let initialMargin = parseFloat(element.style.marginBottom) || 0;
-  
-  function stepAnimation(timestamp) {
-    if (!start) start = timestamp;
-    let progress = (timestamp - start) / duration;
-
-    if (progress > 1) progress = 1; // Ограничение на 100%
     
-    let newMargin = initialMargin + (targetMargin - initialMargin) * progress;
-    element.style.marginBottom = `${newMargin}px`;
-
-    if (progress < 1) {
-      requestAnimationFrame(stepAnimation);
-    } else {
-      element.style.marginBottom = `${targetMargin}px`; // Финальная позиция
-    }
-  }
-
-  requestAnimationFrame(stepAnimation);
-}
-
-// 🔥 Функция для увеличения центрального слайда
-function bigSlide() {
-  let slides = document.querySelectorAll(".swiper-slide");
-  let activeIndex = swiper.realIndex; // Получаем индекс центрального слайда
-
-  slides.forEach((slide, index) => {
-    let distance = Math.abs(index - activeIndex);
-    let scale = 1.5 - distance * 0.2; // Чем дальше от центра, тем меньше размер
-    if (scale < 0.5) scale = 0.5; // Минимальный размер слайдов
-
-    slide.style.transition = "transform 0.4s ease-in-out";
-    slide.style.transform = `scale(${scale})`;
-  });
-}
-  // Клик на слайд делает его центральным
-  document.querySelectorAll(".swiper-slide").forEach((slide, index) => {
-  slide.addEventListener("click", () => {
-    // Удаляем класс active у всех слайдов
-    document.querySelectorAll(".swiper-slide").forEach(s => {
-        s.classList.remove("active"); 
-        s.style.transition = "transform 0.6s ease, margin-bottom 0.6s ease";});
-
-    // Добавляем active к текущему слайду
-    slide.classList.add("active");
-
-    // Центрируем выбранный слайд
-    swiper.slideToLoop(index, 600);
-    swiper.style.transition = "transform 0.4s ease-in-out";
-  });
-
-  
-});
-
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 </html>
