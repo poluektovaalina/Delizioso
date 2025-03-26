@@ -525,7 +525,7 @@
         align-items: center;
         flex-direction: column;
         .img{
-            width: max-content%;
+            width: max-content;
             img{
                 width: 100%;
             }
@@ -585,12 +585,12 @@
         padding-top: 100px;
       }
     
-      .swiper-wrapper {
+    .swiper-wrapper {
         display: flex;
         align-items: center;
-      }
-    
-      .swiper-slide {
+    }
+
+    .swiper-slide {
         height: unset;
         display: flex;
         align-items: center;
@@ -603,13 +603,13 @@
             padding: 10px;
             background-color: #FFC98A;
         }
-      }
-    
-      .swiper-slide img {
+    }
+
+    .swiper-slide img {
         width: 100%;
         object-fit: cover;
         border-radius: 10px;
-      }
+    }
 }
 
 .workTime{
