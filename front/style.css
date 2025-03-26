@@ -5,3 +5,184 @@
 .selectHeaderMenu{
     color: #FF8A00;
 }
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 52px 13px;
+    .header-menu{
+        ul{
+            display: flex;
+            gap: 45px;
+            li{
+                list-style-type: none;
+                span{
+                    font-family: "Poppins-Regular";
+                    font-size: 0.875rem;
+                    color: #311F09;
+                    &:hover{
+                        color: #FF8A00;
+                        cursor: pointer;
+                        transition: all .4s ease;
+                    }
+                }
+            }
+        }
+    }
+    .leftGroup{
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        .cart{
+            background-color: #FAFAF9;
+            border-radius: 100%;
+            min-width: 40px;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .4s ease;
+            svg{
+                size: 24px;
+                fill: transparent;
+                
+                path{
+                    stroke: #311F09;
+                }
+                circle{
+                    stroke: #311F09;
+                }
+            }
+            &:hover{
+                transition: all .4s ease;
+                cursor: pointer;
+                background-color: #3FA72F;
+                box-shadow: 0px 0px 15px #3FA72F;
+                svg{
+                    size: 24px;
+                    fill: transparent;
+                    
+                    path{
+                        stroke: #fff;
+                    }
+                    circle{
+                        stroke: #fff;
+                    }
+                }
+            }
+        }
+        .logInbtnHome{
+            span{
+                padding: 15px 36px;
+                border-radius: 133px;
+                background-color: #3FA72F;
+                font-family: "Poppins-SemiBold";
+                color: #fff;
+                font-size: 0.875rem;
+                &:hover{
+                    cursor: pointer;
+                    transition: all .4s ease;
+                    box-shadow: 0px 0px 15px #3FA72F;
+                }
+            }
+        }
+    }
+}
+
+.footer{
+    background-color: #311F09;
+    .together{
+        padding: 140px 0 93px 0;
+        display: flex;
+        .firstGroup{
+            padding: 0 164px;
+            .desc{
+                font-family: "Poppins-Regular";
+                font-size: 1.25rem;
+                color: #fff;
+                max-width: 352px;
+                padding-top: 45px;
+                padding-bottom: 40px;
+            }
+            .social{
+                display: flex;
+                gap: 30px;
+                .twitter{
+                    min-width: 60px;
+                    min-height: 60px;
+                    border-radius: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #fff;
+                }
+                .inst{
+                    min-width: 60px;
+                    min-height: 60px;
+                    border-radius: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #fff;
+                }
+                .Fakebo{
+                    min-width: 60px;
+                    min-height: 60px;
+                    border-radius: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #fff;
+                }
+            }
+        }
+        .SecondGroup{
+            display: flex;
+            gap: 70px;
+            .groupText{
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                .title{
+                    line-height: 200%;
+                    color: #FF8A00;
+                    font-family: "Poppins-SemiBold";
+                    font-size: 1.5625rem;
+                    &:hover{
+                        color: #fff;
+                        cursor: pointer;
+                        transition: all .4s ease;
+                    }
+                }
+                }
+                .group{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    span{
+                        font-family: "Poppins-Regular";
+                        color: #E3E2E0;
+                        font-size: 1.25rem;
+                        &:hover{
+                            color: #FF8A00;
+                            cursor: pointer;
+                            transition: all .4s ease;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .TherdGroup{
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        padding-bottom: 74px;
+        span{
+            font-family: "Poppins-Regular";
+            color: #E3E2E0;
+            font-size: 1.25rem;
+        }
+    }
+}
