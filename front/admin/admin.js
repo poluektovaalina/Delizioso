@@ -1,109 +1,98 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const baseURL = 'http://localhost:4000/api/adminRoutes';
-  const addDishForm = document.getElementById('addDishForm');
-  const dishList = document.getElementById('dishList');
-  const editModal = document.getElementById('editModal');
-  const editDishForm = document.getElementById('editDishForm');
-  const cancelEditBtn = document.getElementById('cancelEdit');
+async function getAllDishes() {
+  const allFoods = await fetch('http://localhost:4000/api/adminRoutes/getDishes');
+  const allFoodsJson = await allFoods.json();
+  return allFoodsJson;
+}
 
-  let currentEditDishId = null;
-
-  async function fetchDishes(action, bodyData = {}) {
-    try {
-      const response = await fetch(baseURL + '/getDishes', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action, ...bodyData })
-      });
-      if (!response.ok) throw new Error('Failed to fetch dishes');
-      return await response.json();
-    } catch (error) {
-      console.error('Error:', error);
-      Swal.fire('Error', error.message, 'error');
-    }
-  }
-
-  async function getAllFoods() {
-    const dishes = await fetchDishes('getAll');
-    displayDishes(dishes);
-  }
-
-  function displayDishes(dishes) {
-    dishList.innerHTML = '';
-    dishes.forEach(dish => {
-      const li = document.createElement('li');
-      li.dataset.id = dish.id;
-      li.className = 'py-4 flex justify-between items-center';
-      li.innerHTML = `
-        <div>
-          <strong>${dish.name}</strong>
-          <p>${dish.description}</p>
-          <span>$${dish.price}</span>
-          <img src="${dish.imageUrl}" alt="${dish.name}" class="h-20 w-20 object-cover mt-2">
-        </div>
-        <div>
-          <button class="editDish bg-blue-500 text-white px-4 py-2 rounded">Edit</button>
-          <button class="deleteDish bg-red-500 text-white px-4 py-2 rounded">Delete</button>
-        </div>
-      `;
-      dishList.appendChild(li);
-    });
-  }
-
-  addDishForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const dishData = {
-      name: addDishForm.dishName.value,
-      price: addDishForm.dishPrice.value,
-      description: addDishForm.dishDescription.value,
-      imageUrl: addDishForm.dishImageUrl.value,
-    };
-    await fetchDishes('add', dishData);
-    Swal.fire('Success', 'Dish added successfully', 'success');
-    addDishForm.reset();
-    getAllFoods();
+async function createDish() {
+  await fetch('http://localhost:4000/api/adminRoutes/createDish', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: document.getElementById('dishName').value,
+      description: document.getElementById('dishDescription').value,
+      price: document.getElementById('dishPrice').value,
+      imageUrl: document.getElementById('dishImageUrl').value
+    })
   });
+  await refreshDishes();
+}
 
-  dishList.addEventListener('click', async (e) => {
-    const li = e.target.closest('li');
-    if (!li) return;
-    const dishId = li.dataset.id;
-
-    if (e.target.classList.contains('deleteDish')) {
-      await fetchDishes('delete', { dishId });
-      Swal.fire('Deleted', 'Dish deleted successfully', 'success');
-      getAllFoods();
-    }
-
-    if (e.target.classList.contains('editDish')) {
-      currentEditDishId = dishId;
-      const dish = await fetchDishes('getOne', { dishId });
-      editDishForm.editDishName.value = dish.name;
-      editDishForm.editDishDescription.value = dish.description;
-      editDishForm.editDishPrice.value = dish.price;
-      editDishForm.editDishImageUrl.value = dish.imageUrl;
-      editModal.classList.remove('hidden');
-    }
-  });
-
-  editDishForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const updatedDish = {
-      id: currentEditDishId,
-      name: editDishForm.editDishName.value,
-      description: editDishForm.editDishDescription.value,
-      price: editDishForm.editDishPrice.value,
-      imageUrl: editDishForm.editDishImageUrl.value,
-    };
-    await fetchDishes('update', updatedDish);
-    Swal.fire('Updated', 'Dish updated successfully', 'success');
-    editModal.classList.add('hidden');
-    getAllFoods();
-  });
-
-  cancelEditBtn.addEventListener('click', () => {
-    editModal.classList.add('hidden');
-  });
-
-  getAllFoods();
+document.querySelector('form').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  await createDish();
 });
+
+async function deleteDish(id) {
+  await fetch(`http://localhost:4000/api/adminRoutes/deleteDish`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ id })
+  });
+  await refreshDishes();
+}
+
+async function updateDish(id) {
+  await fetch(`http://localhost:4000/api/adminRoutes/updateDish`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      id,
+      name: document.getElementById('editDishName').value,
+      description: document.getElementById('editDishDescription').value,
+      price: document.getElementById('editDishPrice').value,
+      imageUrl: document.getElementById('editDishImageUrl').value
+    })
+  });
+  await refreshDishes();
+}
+
+async function refreshDishes() {
+  const allFoods = await getAllDishes();
+  const allFoodsContainer = document.querySelector('.allFoods');
+  allFoodsContainer.innerHTML = '';
+  allFoods.forEach(dish => allFoodsContainer.innerHTML += createDishCard(dish));
+}
+
+function createDishCard(dish) {
+  return `
+    <div class="dish-card bg-white shadow-lg rounded-lg p-4 flex flex-col space-y-2 items-start">
+      <h3 class="text-xl font-bold text-gray-900">${dish.name}</h3>
+      <p class="text-gray-700">${dish.description}</p>
+      <p class="text-gray-900 font-semibold">Price: $${dish.price}</p>
+      <img src="${dish.imageUrl}" alt="${dish.name}" class="w-full h-40 object-cover rounded-md mb-4"/>
+
+      <div class="flex space-x-2 mt-2">
+        <button onclick="deleteDish('${dish.id}')"
+          class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 ease-in-out shadow-md">
+          Delete
+        </button>
+        <button onclick="openEditModal('${dish.id}', '${dish.name}', '${dish.description}', '${dish.price}', '${dish.imageUrl}')"
+          class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 ease-in-out shadow-md">
+          Edit
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+
+function openEditModal(id, name, description, price, imageUrl) {
+  document.getElementById('editDishName').value = name;
+  document.getElementById('editDishDescription').value = description;
+  document.getElementById('editDishPrice').value = price;
+  document.getElementById('editDishImageUrl').value = imageUrl;
+
+  const saveButton = document.getElementById('saveEditDish');
+  saveButton.onclick = () => updateDish(id);
+
+  document.getElementById('editModal').classList.remove('hidden');
+}
+
+refreshDishes();

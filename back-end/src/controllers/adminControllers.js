@@ -24,13 +24,29 @@ exports.getDishById = async (req, res) => {
 
 exports.createDish = async (req, res) => {
   try {
+    console.log('Request body:', req.body); 
+    
     const { name, description, price, imageUrl } = req.body;
-    const newDish = await Dish.create({ name, description, price, imageUrl });
+
+   
+    if (!name || !price) {
+      return res.status(400).json({ message: 'Name and price are required' });
+    }
+
+    const newDish = await Dish.create({
+      name,
+      description,
+      price: parseFloat(price),  
+      imageUrl
+    });
+
     res.status(201).json(newDish);
   } catch (error) {
+    console.error('Error creating dish:', error); 
     res.status(500).json({ error: error.message });
   }
 };
+
 
 exports.updateDish = async (req, res) => {
   try {

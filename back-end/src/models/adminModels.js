@@ -19,7 +19,8 @@ const Dish = sequelize.define('Dish', {
     allowNull: false,
   },
   imageUrl: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(1000),
+
   },
 }, {
   tableName: 'dishes',

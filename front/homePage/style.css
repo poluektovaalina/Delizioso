@@ -500,7 +500,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url(../img/png/Group\ 63.png);
+    background-image: url(../img/png/Group\63.png);
     overflow: hidden;
     margin-bottom: 130px;
     .title{
@@ -599,7 +599,7 @@
     
       .swiper-slide img {
         width: 100%;
-        object-fit: cover;
+        object-fit: contain;
         border-radius: 10px;
       }
 }

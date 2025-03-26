@@ -1,0 +1,89 @@
+@font-face {
+    font-family: "Roleway-Bold";
+    src: url(../font/Roleway/Raleway-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Roleway-Regular";
+    src: url(../font/Roleway/Raleway-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Poppins-Regular";
+    src: url(../font/Poppins/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Poppins-Medium";
+    src: url(../font/Poppins/Poppins-Medium.ttf);
+}
+
+@font-face {
+    font-family: "Poppins-SemiBold";
+    src: url(../font/Poppins/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "Tinos-Bold";
+    src: url(../font/Tinos/Tinos-Bold.ttf);
+}
+
+
+.item{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 37px 29px;
+    background-color: #FAFAF9;
+    
+    border-radius: 70px;
+    .imagge{
+        padding-bottom: 24px;
+        img{
+            border-radius: 100%;
+            width: 270px;
+            height: 270px;
+            object-fit: cover;
+            background-position: center;
+        }
+    }
+    .title{
+        padding-top: 0;
+        color: #311F09;
+        font-size: 1.875rem;
+        font-family: "Tinos-Bold";
+        padding-bottom: 10px;
+    }
+    .stars{
+        display: flex;
+        gap: 10px;
+        padding-bottom: 15px;
+    }
+    .desc{
+        font-family: "Poppins-Regular";
+        color: #59442B;
+        font-size: 0.875rem;
+        text-align: center;
+        width: 109%;
+        padding-bottom: 30px;
+    }
+    .priceOrder{
+        display: flex;
+        align-items: center;
+        gap: 34px;
+        .price{
+            font-family: "Poppins-SemiBold";
+            font-size: 1.5625rem;
+            color: #311F09;
+        }
+        .btnOrder{
+            font-family: "Poppins-SemiBold";
+            font-size: 1rem;
+            padding: 14px 36px;
+            color: #fff;
+            background-color: #FF8A00;
+            border-radius: 162px;
+        }
+    }
+}
+

@@ -28,21 +28,24 @@
       <div class="bg-white shadow rounded-lg p-6">
         <h2 class="text-2xl font-bold text-gray-800 mb-4">Add New Dish</h2>
         <form id="addDishForm" class="space-y-4">
-          <input type="text" id="dishName" placeholder="Dish Name" required class="w-full border rounded p-2">
-          <input type="number" id="dishPrice" placeholder="Price" required class="w-full border rounded p-2">
-          <textarea id="dishDescription" placeholder="Description" required class="w-full border rounded p-2"></textarea>
-          <input type="text" id="dishImageUrl" placeholder="Image URL" required class="w-full border rounded p-2">
-          <button type="submit" class="w-full bg-[#FF8A00] text-white p-2 rounded">Add Dish</button>
+
+          <input type="text" id="dishName" placeholder="Dish Name" required class="dishName w-full border rounded p-2">
+          <input type="text" id="dishPrice" placeholder="Price" required class="dishPrice w-full border rounded p-2">
+          <textarea id="dishDescription" placeholder="Description" required class="dishDescription w-full border rounded p-2"></textarea>
+          <input type="text" id="dishImageUrl" placeholder="Image URL" required class="dishImageUrl w-full border rounded p-2">
+
+          <button type="submit" class="createDish w-full bg-[#FF8A00]  p-2 rounded">Add Dish</button>
         </form>
       </div>
     </section>
     <section>
       <div class="bg-white shadow rounded-lg p-6">
         <h2 class="text-2xl font-bold text-gray-800 mb-4">Dish List</h2>
-        <ul id="dishList" class="divide-y divide-gray-200"></ul>
+        <ul id="dishList" class="allFoods divide-y divide-gray-200"></ul>
       </div>
     </section>
   </main>
+
   <div id="editModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center fade-in">
     <div class="bg-white p-6 rounded-lg w-1/2">
       <h2 class="text-xl font-bold mb-4">Edit Dish</h2>
@@ -52,29 +55,12 @@
         <input type="number" id="editDishPrice" placeholder="Price" required class="w-full border rounded p-2">
         <input type="text" id="editDishImageUrl" placeholder="Image URL" required class="w-full border rounded p-2">
         <div class="flex justify-end space-x-2">
-          <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Save</button>
+          <button id="saveEditDish" type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Save</button>
           <button type="button" id="cancelEdit" class="bg-gray-500 text-white px-4 py-2 rounded">Cancel</button>
         </div>
       </form>
     </div>
   </div>
-  <script>
-    const inputs = document.querySelectorAll('input, textarea');
-    inputs.forEach(input => {
-      input.addEventListener('invalid', () => input.classList.add('input-error'));
-      input.addEventListener('input', () => input.classList.remove('input-error'));
-    });
 
-    const editModal = document.getElementById('editModal');
-    const cancelEdit = document.getElementById('cancelEdit');
-
-    cancelEdit.addEventListener('click', () => {
-      editModal.classList.add('fade-out');
-      setTimeout(() => {
-        editModal.classList.add('hidden');
-        editModal.classList.remove('fade-out');
-      }, 300);
-    });
-  </script>
 </body>
 </html>
