@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Delizioso Menu</title>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <script src="./menu.js" defer></script>
-  <link rel="stylesheet" href="./style.css">
+  <title>Restaurant Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./aboutUs.js" defer></script>
   <link rel="stylesheet" href="../style.css">
   <style>
     @keyframes coolHoverAnimation {
@@ -25,8 +24,9 @@
     }
   </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-100">
 
+  <!-- Header -->
   <header class="flex items-center justify-between px-10 py-8 bg-white shadow">
     <div class="flex items-center space-x-4">
       <div class="p-2">
@@ -37,12 +37,13 @@
     </div>
     <nav class="flex items-center gap-8 text-gray-700 font-semibold">
       <span class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer home">Home</span>
-      <span class="text-[#FF8A00] transition transform duration-300 hover:animate-cool  cursor-pointer menu">Menu</span>
-      <span class="transition transform duration-300 cursor-pointer hover:text-[#FF8A00] hover:scale-105 aboutUs">About us</span>      
-      <span class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer orderOnline">Order online</span>
-      <span class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer reservation">Reservation</span>
-      <span class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer contactUs">Contact us</span>
+      <span class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer menu">Menu</span>
+      <span class="text-[#FF8A00] transition transform duration-300 cursor-pointer hover:animate-cool">About us</span>      
+      <span class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer">Order online</span>
+      <span class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer">Reservation</span>
+      <span class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer">Contact us</span>
     </nav>
+    
     <div class="flex items-center gap-4">
       <div class="rounded-full bg-gray-100 p-2 cursor-pointer hover:bg-gray-200 transition">
         <img class="w-8" src="../img/svg/Cart.svg" alt="cart">
@@ -56,34 +57,57 @@
     </div>
   </header>
 
+  <main class="mt-20 max-w-6xl mx-auto px-6">
 
-  <div class="py-10 flex items-center justify-center">
-    <img src="../img/svg/Menu.svg" alt="Menu Icon" class="w-32 h-32">
-  </div>
+    <section class="flex flex-col md:flex-row items-center my-16">
+      <div class="relative w-1/2">
+        <div class="">
+          <img src="../img/svg/aboutus1.svg" alt="Chef cooking" class="w-full h-full object-cover">
+        </div>
+      </div>
+      <div class="md:w-1/2 mt-6 md:mt-0 md:pl-12">
+        <h2 class="text-4xl font-bold font-['Tinos']">
+          <span class="text-orange-500">Our
 
-  <div class="flex justify-center gap-4 mb-10">
-    <button class="bg-[#311F09] rounded-full px-8 py-4 text-white font-semibold allCategory">All category</button>
-    <button class="bg-[#D0CCC7] rounded-full px-8 py-4 font-semibold">Dinner</button>
-    <button class="bg-[#D0CCC7] rounded-full px-8 py-4 font-semibold">Lunch</button>
-    <button class="bg-[#D0CCC7] rounded-full px-8 py-4 font-semibold">Dessert</button>
-    <button class="bg-[#D0CCC7] rounded-full px-8 py-4 font-semibold">Drink</button>
-  </div>
-
-  <div class="allFoods max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10 ">
-    
-    
-  </div>
+          </span> <span>restaurant</span>
+        </h2>
+        <p class="mt-4 text-gray-700 border-l-4 border-green-500 pl-4 font-['Poppins']">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </section>
 
 
-  <div class="flex justify-center space-x-2 mb-10">
-    <button class="px-4 py-2 bg-gray-400 text-gray-700 rounded"> &lt; </button>
-    <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded">1</button>
-    <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded">2</button>
-    <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded">3</button>
-    <span class="px-4 py-2">...</span>
-    <button class="px-4 py-2 bg-gray-400 text-gray-700 rounded"> &gt; </button>
-  </div>
+    <section class="flex flex-col md:flex-row items-center my-16">
+      <div class="md:w-1/2 md:pr-12">
+        <p class="text-gray-700 font-['Poppins'] border-r-4 border-green-500 pl-4">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+        </p>
+      </div>
+      <div class="relative w-1/2 mt-6 md:mt-0">
+        <div class="">
+          <img src="../img/svg/aboutus2.svg" alt="Food plating" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </section>
 
+
+    <section class="flex flex-col md:flex-row items-center p-8 rounded-lg">
+      <div class="">
+        <img src="../img/svg/aboutus3.svg" alt="Chef Ismail Marzuki" class="w-full h-full object-cover">
+      </div>
+      <div class="md:ml-8 mt-6 md:mt-0 font-[]">
+        <h3 class="text-5xl font-bold font-['Tinos']">
+          <span class="text-orange-500">Owner</span> & Executive Chef
+        </h3>
+        <p class="text-2xl font-semibold mt-2">Ismail Marzuki</p>
+        <p class="mt-4 text-gray-700 font-['Poppins'] border-l-4 border-green-500 pl-4">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </section>
+
+  </main>
   <footer class="footer">
     <div class="together">
         <div class="firstGroup">

@@ -8,6 +8,23 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="../homePage/homePage.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes coolHoverAnimation {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.1) rotate(5deg);
+          }
+          100% {
+            transform: scale(1) rotate(0deg);
+          }
+        }
+        .hover\:animate-cool:hover {
+          animation: coolHoverAnimation 0.5s ease-out forwards;
+        }
+      </style>
 </head>
 <body>
     <div class="container">
@@ -15,16 +32,14 @@
             <div class="logo">
                 <img src="../img/svg/LogoDeliziosoFull.svg" alt="">
             </div>
-            <div class="header-menu">
-                <ul>
-                    <li><span>Home</span></li>
-                    <li><span>Menu</span></li>
-                    <li><span>About us</span></li>
-                    <li><span>Order online</span></li>
-                    <li><span>Reservation</span></li>
-                    <li><span>Contact us</span></li>
-                </ul>
-            </div>
+            <nav class="flex items-center gap-8 text-gray-700 font-semibold">
+                <span class="text-[#FF8A00] transition transform duration-300 hover:text-[#FF8A00] hover:animate-cool  home">Home</span>
+                <span class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer goMenu">Menu</span>
+                <span class="transition transform duration-300 cursor-pointer hover:scale-105 cursor-pointer aboutUs">About us</span>      
+                <span class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer orderOnline">Order online</span>
+                <span class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer reservation">Reservation</span>
+                <span class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer contactUs">Contact us</span>
+              </nav>
             <div class="leftGroup">
                 <div class="cart">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +57,7 @@
         <div class="baner">
             <div class="groupText">
                 <div class="stiker">
-                    <span>Restauran</span>
+                    <span>Restaurant</span>
                 </div>
                 <div class="title">
                     <span>Italian Cuisine</span>
@@ -89,151 +104,8 @@
                 <span>Dessert</span>
                 <span>Drink</span>
             </div>
-            <div class="menuCatalog">
-                <div class="item">
-                    <div class="imagge">
-                        <img src="../img/png/kisspng-italian-cuisine-pizza-naporitan-spaghetti-alla-put-top-view-spaghetti-bolognese-5add123c2c5952 2.png" alt="">
-                    </div>
-                    <div class="title">
-                        Spaghetti
-                    </div>
-                    <div class="stars">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                    </div>
-                    <div class="desc">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam. 
-                    </div>
-                    <div class="priceOrder">
-                        <div class="price">$12.05</div>
-                        <div class="btnOrder">
-                            Order now
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="imagge">
-                        <img src="../img/png/kisspng-italian-cuisine-pizza-naporitan-spaghetti-alla-put-top-view-spaghetti-bolognese-5add123c2c5952 2.png" alt="">
-                    </div>
-                    <div class="title">
-                        Spaghetti
-                    </div>
-                    <div class="stars">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                    </div>
-                    <div class="desc">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam. 
-                    </div>
-                    <div class="priceOrder">
-                        <div class="price">$12.05</div>
-                        <div class="btnOrder">
-                            Order now
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="imagge">
-                        <img src="../img/png/kisspng-italian-cuisine-pizza-naporitan-spaghetti-alla-put-top-view-spaghetti-bolognese-5add123c2c5952 2.png" alt="">
-                    </div>
-                    <div class="title">
-                        Spaghetti
-                    </div>
-                    <div class="stars">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                    </div>
-                    <div class="desc">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam. 
-                    </div>
-                    <div class="priceOrder">
-                        <div class="price">$12.05</div>
-                        <div class="btnOrder">
-                            Order now
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="imagge">
-                        <img src="../img/png/kisspng-italian-cuisine-pizza-naporitan-spaghetti-alla-put-top-view-spaghetti-bolognese-5add123c2c5952 2.png" alt="">
-                    </div>
-                    <div class="title">
-                        Spaghetti
-                    </div>
-                    <div class="stars">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                    </div>
-                    <div class="desc">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam. 
-                    </div>
-                    <div class="priceOrder">
-                        <div class="price">$12.05</div>
-                        <div class="btnOrder">
-                            Order now
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="imagge">
-                        <img src="../img/png/kisspng-italian-cuisine-pizza-naporitan-spaghetti-alla-put-top-view-spaghetti-bolognese-5add123c2c5952 2.png" alt="">
-                    </div>
-                    <div class="title">
-                        Spaghetti
-                    </div>
-                    <div class="stars">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                    </div>
-                    <div class="desc">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam. 
-                    </div>
-                    <div class="priceOrder">
-                        <div class="price">$12.05</div>
-                        <div class="btnOrder">
-                            Order now
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="imagge">
-                        <img src="../img/png/kisspng-italian-cuisine-pizza-naporitan-spaghetti-alla-put-top-view-spaghetti-bolognese-5add123c2c5952 2.png" alt="">
-                    </div>
-                    <div class="title">
-                        Spaghetti
-                    </div>
-                    <div class="stars">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                        <img src="../img/svg/Star 1.svg" alt="">
-                    </div>
-                    <div class="desc">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam. 
-                    </div>
-                    <div class="priceOrder">
-                        <div class="price">$12.05</div>
-                        <div class="btnOrder">
-                            Order now
-                        </div>
-                    </div>
-                </div>
+            <div id="menu" class="menuCatalog">
+                
             </div>
             <div class="next">
                 <div class="itemPrev">

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Table</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./reservation.js" defer></script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        @keyframes coolHoverAnimation {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1) rotate(5deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+        .hover\:animate-cool:hover { animation: coolHoverAnimation 0.5s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-white">
+    <header class="flex items-center justify-between px-10 py-8 bg-white shadow">
+        <div class="flex items-center space-x-4">
+          <div class="p-2">
+            <img class="w-10 h-10" src="../img/svg/Logo%20Delizioso.svg" alt="logo">
+          </div>
+          <span class="text-xl font-bold">Delizi</span>
+          <span class="font-bold text-[#FF8A00] text-xl">oso</span>
+        </div>
+        <nav class="flex items-center gap-8 text-gray-700 font-semibold">
+          <span class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer home">Home</span>
+          <span class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer menu">Menu</span>
+          <span class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer aboutUs">About us</span>      
+          <span class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer orderOnline">Order online</span>
+          <span class="text-[#FF8A00] transition transform duration-300  cursor-pointer hover:animate-cool reservation">Reservation</span>
+          <span class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer contactUs">Contact us</span>
+        </nav>
+        
+        <div class="flex items-center gap-4">
+          <div class="rounded-full bg-gray-100 p-2 cursor-pointer hover:bg-gray-200 transition">
+            <img class="w-8" src="../img/svg/Cart.svg" alt="cart">
+          </div>
+          <button class="bg-green-500 rounded-full px-10 py-3 text-white hover:bg-green-600 transition">
+            Log in
+          </button>
+          <button class="bg-[#FF8A00] rounded-full px-6 py-3 text-white cursor-pointer admin">
+            Admin Panel
+          </button>
+        </div>
+      </header>
+
+    <section class="flex justify-center items-center py-12 px-4">
+        <div class="grid grid-cols-2 gap-12 max-w-4xl w-full">
+            <div class="relative flex justify-center">
+                <img src="../img/svg/reservation.svg" alt="Table setup" class="w-[350px] h-[350px] rounded-full object-cover">
+            </div>
+            <div class="bg-white shadow-lg rounded-xl p-8 max-w-md w-full text-center">
+                <h1 class="text-3xl font-bold mb-6">Забронировать столик</h1>
+                <form id="reservationForm" class="space-y-4">
+                    <input id="reservationDate" type="text" placeholder="Выберите дату" required class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    <input id="reservationTime" type="text" placeholder="Выберите время" required class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    <input id="partySize" type="number" placeholder="Количество гостей" required min="1" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    <button id="bookButton" type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-md font-semibold transition">Забронировать</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="together">
+            <div class="firstGroup">
+                <div class="logo">
+                    <img src="../img/svg/LogoDeliziosoWhite.svg" alt="">
+                </div>
+                <div class="desc">
+                    Viverra gravida morbi egestas facilisis tortor netus non duis tempor. 
+                </div>
+                <div class="social">
+                    <div class="twitter">
+                        <img src="../img/svg/twitter.svg" alt="">
+                        </div>
+                    <div class="inst">
+                        <img src="../img/svg/instagram.svg" alt="">     
+                    </div>
+                    <div class="Fakebo">
+                        <img src="../img/svg/facebook.svg" alt="">                         
+                    </div>
+                </div>
+            </div>
+            <div class="SecondGroup">
+                <div class="groupText">
+                    <div class="title">Page</div>
+                    <div class="group">
+                        <span>Home</span>
+                        <span>Menu</span>
+                        <span>Order online</span>
+                        <span>Catering</span>
+                        <span>Reservation</span>
+                    </div>
+                </div>
+                <div class="groupText">
+                    <div class="title">Information</div>
+                    <div class="group">
+                        <span>About us</span>
+                        <span>Testimonial</span>
+                        <span>Event</span>
+                    </div>
+                </div>
+                <div class="groupText">
+                    <div class="title">Get in touch</div>
+                    <div class="group">
+                        <span>3247 Johnson Ave, Bronx, NY<br>10463, Amerika Serikat</span>
+                        <span>delizioso@gmail.com</span>
+                        <span>+123 4567 8901</span>
+                        <span>Catering</span>
+                        <span>Reservation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="TherdGroup">
+            <span>Copyright</span>
+            <div class="imgC">
+                <img src="../img/svg/Icon.svg" alt="">
+            </div>
+            <span>2022 Delizioso</span>
+        </div>
+    </footer>
+</body>
+</html>
