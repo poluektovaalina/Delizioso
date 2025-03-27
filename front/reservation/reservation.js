@@ -1,7 +1,7 @@
 document.querySelector('.home').addEventListener('click', () => {
     window.location.href = '../homePage/homePage.html';
 })
-document.querySelector('.menu').addEventListener('click', () => {
+document.querySelector('.goMenu').addEventListener('click', () => {
     window.location.href = '../menu/menu.html';
 })
 document.querySelector('.aboutUs').addEventListener('click', () => {
@@ -68,3 +68,16 @@ function formatTime(input) {
 
 
 
+
+const modalFirstRev = document.querySelector('.modalFirstResv'); // Исправлено
+const bookButton = document.getElementById('reservationForm');
+
+bookButton.addEventListener('submit', (e) => {
+    e.preventDefault()
+    console.log("Кнопка нажата"); 
+    if (modalFirstRev) {
+        modalFirstRev.classList.add('active'); // Добавляем класс 'active'
+    } else {
+        console.error("Модальное окно не найдено");
+    }
+});

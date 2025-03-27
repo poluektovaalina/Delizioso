@@ -106,3 +106,14 @@
         }
     }
 }
+
+.active{
+    display: flex !important;
+}
+
+
+.modalFirstResv{
+    display: none;
+    max-width: 1112px;
+    background-color: #FFFFFF;
+}
