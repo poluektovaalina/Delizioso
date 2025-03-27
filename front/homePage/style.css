@@ -24,6 +24,11 @@
 }
 
 @font-face {
+    font-family: "Poppins-LightItalic";
+    src: url(../font/Poppins/Poppins-LightItalic.ttf);
+}
+
+@font-face {
     font-family: "Tinos-Bold";
     src: url(../font/Tinos/Tinos-Bold.ttf);
 }

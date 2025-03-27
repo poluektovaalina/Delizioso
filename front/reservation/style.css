@@ -1,0 +1,108 @@
+@font-face {
+    font-family: "Roleway-Bold";
+    src: url(../font/Roleway/Raleway-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Roleway-Regular";
+    src: url(../font/Roleway/Raleway-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Poppins-Regular";
+    src: url(../font/Poppins/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Poppins-Medium";
+    src: url(../font/Poppins/Poppins-Medium.ttf);
+}
+
+@font-face {
+    font-family: "Poppins-SemiBold";
+    src: url(../font/Poppins/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "Poppins-LightItalic";
+    src: url(../font/Poppins/Poppins-LightItalic.ttf);
+}
+
+@font-face {
+    font-family: "Tinos-Bold";
+    src: url(../font/Tinos/Tinos-Bold.ttf);
+}
+
+.header{
+    .logInbtnHome{
+        display: flex;
+        gap: 20px;
+        span:nth-child(2){
+            background-color: #FF8A00;
+            &:hover{
+                cursor: pointer;
+                transition: all .4s ease;
+                box-shadow: 0px 0px 15px #c46800;
+            }
+        }
+    }
+}
+
+.onlyOne{
+    .block{
+        display: flex;
+        .imagee{
+            width: 50%;
+            img{
+                width: 100%;
+            }
+        }
+
+        .Second{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            .title{
+                font-family: "Tinos-Bold";
+                font-size: 5rem;
+                line-height: 110%;
+                text-wrap: nowrap;
+                padding-bottom: 50px;
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                input{
+                    max-width: 475px;
+                    padding: 39px 50px;
+                    background-color: #FAFAF9;
+                    outline: none;
+                    border: none;
+                    border-radius: 20px;
+                    &::placeholder{
+                        color: #A0978C;
+                        font-family: "Poppins-Regular";
+                        font-size: 1.25rem;
+                    }
+                }
+                #bookButton{
+                    display: ;
+                    padding: 36px 176px;
+                    background-color: #FF8A00;
+                    outline: none;
+                    border: none;
+                    border-radius: 20px;
+                    font-family: "Poppins-SemiBold";
+                    color: #fff;
+                    &:hover{
+                        background-color: #FF8A00;
+                        box-shadow: 0px 0px 15px #FF8A00;
+                    }
+                }
+            }
+        }
+    }
+}
