@@ -2,9 +2,52 @@
     margin: 0;
 }
 
+@font-face {
+    font-family: "Roleway-Bold";
+    src: url(../font/Roleway/Raleway-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Roleway-Regular";
+    src: url(../font/Roleway/Raleway-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Poppins-Regular";
+    src: url(../font/Poppins/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Poppins-Medium";
+    src: url(../font/Poppins/Poppins-Medium.ttf);
+}
+
+@font-face {
+    font-family: "Poppins-SemiBold";
+    src: url(../font/Poppins/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "Tinos-Bold";
+    src: url(../font/Tinos/Tinos-Bold.ttf);
+}
+
 .selectHeaderMenu{
     color: #FF8A00;
 }
+
+.container{
+    display: flex;
+    flex-direction: column;
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+    @media screen and (max-width:1440px){
+        margin: 0 50px;
+        width: 100%;
+    }
+}
+
 .header{
     display: flex;
     align-items: center;

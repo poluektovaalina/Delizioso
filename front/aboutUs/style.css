@@ -1,0 +1,151 @@
+@font-face {
+    font-family: "Roleway-Bold";
+    src: url(../font/Roleway/Raleway-Bold.ttf);
+  }
+
+  @font-face {
+    font-family: "Roleway-Regular";
+    src: url(../font/Roleway/Raleway-Regular.ttf);
+  }
+
+  @font-face {
+    font-family: "Poppins-Regular";
+    src: url(../font/Poppins/Poppins-Regular.ttf);
+  }
+
+  @font-face {
+    font-family: "Poppins-Medium";
+    src: url(../font/Poppins/Poppins-Medium.ttf);
+  }
+
+  @font-face {
+    font-family: "Poppins-SemiBold";
+    src: url(../font/Poppins/Poppins-SemiBold.ttf);
+  }
+
+  @font-face {
+    font-family: "Poppins-LightItalic";
+    src: url(../font/Poppins/Poppins-LightItalic.ttf);
+  }
+
+  @font-face {
+    font-family: "Tinos-Bold";
+    src: url(../font/Tinos/Tinos-Bold.ttf);
+  }
+
+main{
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0px auto;
+}
+
+.ourRes{
+    .title{
+        font-family: "Tinos-Bold";
+        font-size: 5rem;
+        padding: 0 0 60px 0;
+        span{
+            line-height: 110%;
+            color: #FF8A00;
+            &:nth-child(2){
+                color: #311F09;
+            }
+        }
+    }
+    .desc{
+        font-size: 1.25rem;
+        font-family: "Poppins-Regular";
+        color: #5C4529;
+        text-align: start;
+        width: 67%;
+        border-left: 4px solid #3FA72F;
+        padding-left: 20px;
+    }
+}
+.ourResSec{
+    display: flex;
+    gap: 45px;
+    .Desc{
+        width: 38%;
+        .desc{
+            font-size: 1.25rem;
+            font-family: "Poppins-Regular";
+            color: #5C4529;
+            text-align: start;
+            border-right: 4px solid #3FA72F;
+            padding-right: 20px;
+        }
+
+    }
+    
+}
+
+.Chef{
+    width: 100%;
+    display: flex;
+    gap: 103px;
+    padding: 135px 0;
+    .imgg{
+        width: 50%;
+        img{
+            width: 67%;
+        }
+    }
+    .groupText{
+        width: 53%;
+        .title{
+            span{
+                font-family: "Tinos-Bold";
+                font-size: 5rem;
+                color: #FF8A00;
+                div{
+                    display: inline;
+                    color: #311F09;
+                }
+            }
+        }
+        .name{
+            font-family: "Poppins-SemiBold";
+            padding-top: 40px;
+            font-size: 2.5rem;
+           
+        }
+
+        .words{
+            margin-top: 110px;
+            width: 73%;
+            line-height: 200%;
+            font-family: "Poppins-LightItalic";
+            color: #5C4529;
+            font-size: 1.875rem;
+            position: relative;
+            &::after{
+                content: " ";
+                background-image: url(../img/svg/kavichka.svg);
+                background-repeat: no-repeat;
+                width: 35px;
+                height: 25px;
+                position: absolute;
+                top: -10%;
+                left: 4%;
+                transform: translate(-50%, -50%);
+            }
+            &::before{
+                content: " ";
+                background-image: url(../img/svg/kavichka.svg);
+                background-repeat: no-repeat;
+                width: 35px;
+                height: 25px;
+                position: absolute;
+                bottom: -10%;
+                right: 4%;
+                transform: translate(-50%, -50%);
+                rotate: 180deg;
+            }
+        }
+    }
+}
