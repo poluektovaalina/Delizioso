@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./reservation.js" defer></script>
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         @keyframes coolHoverAnimation {
             0% { transform: scale(1); }
@@ -56,9 +56,9 @@
             <div class="bg-white shadow-lg rounded-xl p-8 max-w-md w-full text-center">
                 <h1 class="text-3xl font-bold mb-6">Забронировать столик</h1>
                 <form id="reservationForm" class="space-y-4">
-                    <input id="reservationDate" type="text" placeholder="Выберите дату" required class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500">
-                    <input id="reservationTime" type="text" placeholder="Выберите время" required class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500">
-                    <input id="partySize" type="number" placeholder="Количество гостей" required min="1" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    <input id="reservationDate" type="text" placeholder="Напишите дату" required class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    <input id="reservationTime" type="text" placeholder="Напишите время" required class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    <input id="partySize" type="number" placeholder="Количество гостей (до 20)" required min="1" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500">
                     <button id="bookButton" type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-md font-semibold transition">Забронировать</button>
                 </form>
             </div>

@@ -21,7 +21,7 @@ async function login(email, password) {
             text: "Вы успешно вошли в систему",
             icon: "success"
         });
-        window.location.href = '../index.html';
+        window.location.href = '../homePage/homePage.html';
         return data;
     } catch (error) {
         console.error('Login error:', error.message);
