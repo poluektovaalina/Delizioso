@@ -114,6 +114,175 @@
 
 .modalFirstResv{
     display: none;
-    max-width: 1112px;
-    background-color: #FFFFFF;
+    
+    .group{
+        max-width: 1112px;
+        background-color: #FFFFFF;
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        z-index: 2;
+        padding: 60px 60px;
+        width: 100%;
+        .head{
+            display: flex;
+            justify-content: space-between;
+            .groupBtn{
+                display: flex;
+                gap: 15px;
+                .span:nth-child(1){
+                    padding: 14px 32px;
+                    background-color: #FF8A00;
+                    border-radius: 133px;
+                    color: #fff;
+                    font-family: 'Poppins-SemiBold';
+                    font-size: 0.875rem;
+                    transition: all .4s ease;
+                    &:hover{
+                        box-shadow: 0px 0px 15px #FF8A00;
+                        cursor: pointer;
+                        transition: all .4s ease;
+                    }
+                }
+                .span:nth-child(2){
+                    padding: 14px 32px;
+                    background-color: #3FA72F;
+                    border-radius: 133px;
+                    color: #fff;
+                    font-family: 'Poppins-SemiBold';
+                    font-size: 0.875rem;
+                    transition: all .4s ease;
+                    &:hover{
+                        box-shadow: 0px 0px 15px #3FA72F;
+                        cursor: pointer;
+                        transition: all .4s ease;
+                    }
+                }
+            }
+        }
+        .detail{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .imagge{
+                max-width: 460px;
+                padding-top: 15px;
+                img{
+                    width: 100%;
+                }
+            }
+
+            .title{
+                padding-top: 30px;
+                font-size: 1.5625rem;
+                font-family: 'Poppins-SemiBold';
+                color: #311F09;
+            }
+            .groupDetail{
+                padding-top: 50px;
+                display: flex;
+                gap: 52px;
+                .item{
+                    display: flex;
+                    align-items: center;
+                    gap: 23px;
+                    span{
+                        color: #5C4529;
+                        font-size: 1.25rem;
+                        font-family: "Poppins-Regular";
+                    }
+                }
+            }
+        }
+
+        .info{
+            margin-top: 34px;
+            padding: 50px 133px;
+            border-radius: 20px;
+            background-color: #D0F7FF;
+            .span{
+                color: #5C4529;
+                font-size: 1.25rem;
+                font-family: "Poppins-Regular";
+                span:nth-child(1){
+                    font-family: 'Poppins-SemiBold';
+                    color: #311F09;
+                }
+            }
+        }
+    }
+    &::after{
+        content: " ";
+        background-color: #311F09;
+        opacity: 80%;
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        top: 0;
+        bottom: 0;
+        left: -470px;
+        z-index: 1;
+    }
+}
+
+.dataOrder{
+    padding-top: 60px;
+    .title{
+        padding-left: 14px;
+        padding-bottom: 30px;
+        font-family: 'Poppins-SemiBold';
+        color: #000;
+        font-size: 1.625rem;
+    }
+    form{
+        display: flex;
+        gap: 34px;
+        width: 100%;
+        .first{
+            position: relative;
+            input:nth-child(3){
+                padding-left: 229px;
+            }
+            .country{
+                position: absolute;
+                top: 150px;
+                left: 15px;
+                background-color: #fff;
+                border-radius: 10px;
+                &::after{
+                    content: " ";
+                    background-image: url(../img/svg/arrowCountry.svg);
+                    background-repeat: no-repeat;
+                    width: 23px;
+                    height: 15px;
+                    position: absolute;
+                    top: 50%;
+                    transform: translate(50%, -50%);
+                    right: 30px;
+                    cursor: pointer;
+                }
+                .imgCountry{
+                    padding: 11px 61px 11px 43px;
+                }
+            }
+        }
+        .first,
+        .second{
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            width: 50%;
+            input{
+                padding: 39px 40px;
+                max-width: 479px;
+                width: 100%;        
+                background-color: #FAFAF9;
+                color: #A0978C;
+                font-family: "Poppins-Regular";
+                border-radius: 20px;
+                outline: none;
+            }
+        }
+    }
 }
