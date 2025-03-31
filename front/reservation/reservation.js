@@ -70,7 +70,9 @@ function formatTime(input) {
 
 
 const modalFirstRev = document.querySelector('.modalFirstResv'); // Исправлено
+const modalSecondResv = document.querySelector('.modalSecondResv'); // Исправлено
 const bookButton = document.getElementById('reservationForm');
+const confirmBtn = document.querySelector('.confirmBtn')
 
 bookButton.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -81,3 +83,8 @@ bookButton.addEventListener('submit', (e) => {
         console.error("Модальное окно не найдено");
     }
 });
+
+confirmBtn.addEventListener('click', () =>{
+    modalFirstRev.classList.remove('active');
+    modalSecondResv.classList.add('active')
+})
