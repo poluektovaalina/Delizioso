@@ -454,5 +454,146 @@
                 }
             }
         }
+
+        .detailRrsv{
+            display: flex;
+            padding: 60px 60px 60px 0px;
+            align-items: center;
+            justify-content: space-between;
+            .imgg{
+                max-width: 330px;
+                padding-right: 34px;
+                img{
+                    width: 100%;
+                }
+            }
+            .gruoudesc{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                .title{
+                   color: #311F09;
+                   font-family: 'Poppins-SemiBold';
+                   font-size: 1.5625rem;
+                   padding-bottom: 10px;
+                }
+                .item{
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    span{
+                        color: #5C4529;
+                        font-size: 1.25rem;
+                        font-family: "Poppins-Regular";
+                    }
+                }
+            }
+            .btnSetting{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                .modify{
+                    display: flex;
+                    gap: 25px;
+                    align-items: center;
+                    padding: 29px 60px;
+                    background-color: #CCE3FF;
+                    border-radius: 20px;
+                    span{
+                        color: #123968;
+                        font-size: 1.25rem;
+                        font-family: "Poppins-Regular";
+                    }
+                }
+                .close{
+                    display: flex;
+                    gap: 25px;
+                    align-items: center;
+                    padding: 29px 60px;
+                    background-color: #FFE6E6;
+                    border-radius: 20px;
+                    span{
+                        color: #EA1010;
+                        font-size: 1.25rem;
+                        font-family: "Poppins-Regular";
+                    }
+                }
+            }
+        }
+        .infoRest{
+            padding: 0px 60px;
+            display: flex;
+            gap: 34px;
+            align-items: center;
+            .groupInpu{
+                display: flex;
+                gap: 37px;
+                flex-direction: column;
+                width: 50%;   
+                .arrowInput{
+                    position: relative;
+                    input{
+                        padding: 39px 50px;
+                        border-radius: 20px;
+                        background-color: #FBFAFA;
+                        height: unset;
+                        &::placeholder{
+                            color: #A0978C;
+                            font-size: 1.25rem;
+                            font-family: "Poppins-Regular";
+                        }
+                        
+                    }
+                    &::after{
+                        content: " ";
+                        background-image: url(../img/svg/arrowCountry.svg);
+                        position: absolute;
+                        top: 50%;
+                        right: 34px;
+                        z-index: 3;
+                        background-repeat: no-repeat;
+                        height: 14px;
+                        width: 23px;
+                        transform: translateY(-50%);
+                    }
+                }
+                label{
+                    padding: 39px 50px;
+                    height: 359px;
+                    border-radius: 20px;
+                    background-color: #FBFAFA;
+                    color: #A0978C;
+                    input{
+                        background-color: transparent;
+                        outline: none;
+                        &::placeholder{
+                            color: #A0978C;
+                            font-size: 1.25rem;
+                            font-family: "Poppins-Regular";
+                        }
+                    }
+                }                  
+            }
+            .groupText{
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                width: 50%;
+                .title{
+                    color: #000;
+                    font-family: 'Poppins-SemiBold';
+                    font-size: 1.5625rem;     
+                    padding-bottom: 40px; 
+                } 
+                span{
+                   color: #5C4529;
+                   font-size: 1.25rem;
+                   font-family: "Poppins-Regular";
+                   &:nth-child(1){
+                    padding-bottom: 20px;
+                   }
+                }
+            }
+        }
     }
 }
