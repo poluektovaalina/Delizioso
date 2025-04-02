@@ -185,38 +185,13 @@ document.querySelector('.container').addEventListener('click', (event) => {
     const parentDishId = parentItem ? parentItem.getAttribute('data-id') : null;
     console.log(`ID из кнопки (data-button): ${dishId}`);
     console.log(`ID из блока (data-id): ${parentDishId}`);
-    if (parentItem) {
-      parentItem.classList.add('activeCard');
+    if (dishId) {
+      window.location.href = `../menu/menu.html`;
     }
   }
 });
 
-document.querySelector('.container').addEventListener('click', (event) => {
-  const starEl = event.target.closest('.star');
-  if (!starEl) return; 
 
-  const starsContainer = starEl.closest('.stars');
-  if (!starsContainer) return;
-
-  const item = starsContainer.closest('.item'); 
-  const isActive = item.classList.contains('activeCard'); 
-
-  const stars = Array.from(starsContainer.querySelectorAll('.star'));
-  const index = stars.indexOf(starEl);
-
-  stars.forEach((star, i) => {
-    if (i <= index) {
-      if (isActive) {
-        star.classList.add('activeClick'); 
-      } else {
-        star.classList.add('highlighted'); 
-      }
-    } else {
-      star.classList.remove('highlighted');
-      star.classList.remove('activeClick'); 
-    }
-  });
-});
 
 
 
