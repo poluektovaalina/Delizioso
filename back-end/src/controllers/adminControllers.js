@@ -27,6 +27,7 @@ exports.createDish = async (req, res) => {
     console.log('Request body:', req.body); 
     
     const { name, description, price, imageUrl } = req.body;
+    console.log(name, description, price, imageUrl)
 
    
     if (!name || !price) {
