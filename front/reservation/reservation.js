@@ -88,3 +88,6 @@ confirmBtn.addEventListener('click', () =>{
     modalFirstRev.classList.remove('active');
     modalSecondResv.classList.add('active')
 })
+
+//НАЧИНАЙ ОТ СЮДА УДАЛЯЮ
+
