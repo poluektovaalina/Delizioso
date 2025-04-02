@@ -147,10 +147,10 @@
 .menuCatalog{
     padding-top: 116px;
     display: flex;
-    gap: 40px;
+    gap: 30px;
     flex-wrap: wrap;
     justify-content: center;
-    max-width: 1125px;
+    max-width: 722px;
     flex-direction: row;
     .item{
         display: flex;
@@ -248,5 +248,22 @@
         color: #fff;
         font-size: 1.875rem;
         text-wrap: nowrap;
+        margin-bottom: 58px;
+    }
+    .groupCards{
+        .itemCards{
+            .groupClosed{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding-bottom: 30px;
+                .title{
+                    font-family: "Poppins-SemiBold";
+                    font-size: 1.5625rem;
+                    color: #000000;
+                    padding: 0px;
+                }
+            }
+        }
     }
 }
