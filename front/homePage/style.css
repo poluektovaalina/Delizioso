@@ -299,6 +299,15 @@
             background-color: #FAFAF9;
             max-width: 344px;
             border-radius: 70px;
+            transition: all .4s ease;
+            &.activeCard{
+                background-color: #FF8A00;
+            }
+            &:hover{
+                box-shadow: 0px 0px 15px #FF8A00;
+                cursor: pointer;
+                transition: all .4s ease;
+            }
             .imagge{
                 padding-bottom: 24px;
                 min-height: 286px;
@@ -345,6 +354,11 @@
                     color: #fff;
                     background-color: #FF8A00;
                     border-radius: 162px;
+                    &:hover{
+                        box-shadow: 0px 0px 15px #FF8A00;
+                        cursor: pointer;
+                        transition: all .4s ease;
+                    }
                 }
             }
         }
