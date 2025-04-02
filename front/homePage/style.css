@@ -302,6 +302,17 @@
             transition: all .4s ease;
             &.activeCard{
                 background-color: #FF8A00;
+                .title,
+                .desc,
+                .stars{
+                    color: #fff !important;
+
+                }
+                .btnOrder{
+                    background-color: #fff !important;
+                    color: #000 !important;
+                    box-shadow: 0px 0px 15px #fff;
+                }
             }
             &:hover{
                 box-shadow: 0px 0px 15px #FF8A00;
@@ -325,11 +336,31 @@
                 font-family: "Tinos-Bold";
                 padding-bottom: 10px;
             }
-            .stars{
+            .stars {
                 display: flex;
                 gap: 10px;
+                color: #cacaca;
+                font-size: 1.25rem;
                 padding-bottom: 15px;
-            }
+              }
+              
+              .star {
+                fill: #ffe8ce; 
+                transition: fill 0.3s;
+              }
+              
+              .star.active {
+                fill: white; 
+              }
+              
+              .star.highlighted {
+                fill: #FF8A00; 
+              }
+              
+              .star.activeClick {
+                fill: black; 
+              }
+              
             .desc{
                 font-family: "Poppins-Regular";
                 color: #59442B;
