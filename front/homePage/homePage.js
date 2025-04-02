@@ -137,7 +137,7 @@ async function renderDishes() {
   container.innerHTML = '';
   dishes.forEach(dish => {
     container.innerHTML += `
-                  <div class="item">
+                  <div data-id="${dish.id}" class="item">
                     <div class="imagge">
                         <img src="${dish.imageUrl}" alt="">
                     </div>
@@ -156,7 +156,7 @@ async function renderDishes() {
                     </div>
                     <div class="priceOrder">
                         <div class="price">$${dish.price}</div>
-                        <div class="btnOrder">
+                        <div data-button="${dish.id}" class="btnOrder">
                             Order now
                         </div>
                     </div>
@@ -164,5 +164,14 @@ async function renderDishes() {
     `;
   });
 }
+
+document.querySelector('.container').addEventListener('click', (event) => {
+  if (event.target.classList.contains('btnOrder')) {
+    const dishId = event.target.getAttribute('data-button');
+    console.log(dishId);
+  }
+
+});
+
 
 renderDishes();

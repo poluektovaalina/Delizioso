@@ -95,4 +95,9 @@ function openEditModal(id, name, description, price, imageUrl) {
   document.getElementById('editModal').classList.remove('hidden');
 }
 
+document.querySelector('.cancelEdit').addEventListener('click', () => {
+  document.getElementById('editModal').classList.add('hidden');
+})
+
+
 refreshDishes();
