@@ -270,7 +270,14 @@
         margin-bottom: 58px;
     }
     .groupCards{
+        display: flex;
+        flex-direction: column;
+        gap: 58px;
+        padding-bottom: 58px;
+        border-bottom: 2px dashed #D0CCC7;
+        margin: 0 -20px;
         .itemCards{
+            padding: 0 20px;
             .groupClosed{
                 display: flex;
                 align-items: center;
@@ -281,6 +288,85 @@
                     font-size: 1.5625rem;
                     color: #000000;
                     padding: 0px;
+                }
+            }
+
+            .groupCounts{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .counts{
+                    display: flex;
+                    align-items: center;
+                    max-width: 118px;
+                    width: 100%;
+                    height: 33px;
+                    background-color: #FAFAF9;
+                    justify-content: space-between;
+                    border-radius: 100%;
+                    .minus{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        min-width: 33px;
+                        min-height: 33px;
+                        background-color: #fff;
+                        border-radius: 100%;
+                        box-shadow: 3.32px 3.32px 4.99px #ff4f4f52;
+                        svg{
+                            path{
+                                stroke: #FF3838;
+                            }
+                        }
+                        &:hover{
+                            background-color: #FF3838;
+                            cursor: pointer;
+                            transition: all .4s ease;
+                            svg{
+                                path{
+                                    stroke: #fff;
+                                }
+                            }
+                        }
+                        
+                    }
+                    .countNum{
+                        font-family: "Poppins-Regular";
+                        color: #000;
+                        font-size: 1.03875rem;
+                    }
+                    .plus{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        min-width: 33px;
+                        min-height: 33px;
+                        background-color: #fff;
+                        border-radius: 100%;
+                        box-shadow: 3.32px 3.32px 4.99px #3fc66e59;
+                        svg{
+                            path{
+                                stroke: #3FC66E;
+                            }
+                        }
+                        &:hover{
+                            background-color: #3FC66E;
+                            box-shadow: 0px 0px 15px #3FC66E;
+                            cursor: pointer;
+                            transition: all .4s ease;
+                            svg{
+                                path{
+                                    stroke: #fff;
+                                }
+                            }
+                        }
+
+                    }
+                }
+                .price{
+                    font-family: "Poppins-Medium";
+                    font-size: 1.5625rem;
+                    color: #FF8A00;
                 }
             }
         }
