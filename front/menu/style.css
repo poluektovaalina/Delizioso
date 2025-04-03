@@ -268,6 +268,12 @@
         font-size: 1.875rem;
         text-wrap: nowrap;
         margin-bottom: 58px;
+        &:hover{
+            box-shadow: 0px 0px 15px #512982;
+            cursor: pointer;
+            transition: all .4s ease;
+        }
+
     }
     .groupCards{
         display: flex;
@@ -288,6 +294,34 @@
                     font-size: 1.5625rem;
                     color: #000000;
                     padding: 0px;
+                }
+                .remove{
+                    min-width: 33px;
+                    min-height: 33px;
+                    background-color: transparent;
+                    border-radius: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all .4s ease;
+                    svg{
+                        color: transparent;
+                        path{
+                            stroke: #FF3838;
+                        }
+                    }
+                    &:hover{
+                        box-shadow: 0px 0px 15px #FF3838;
+                        cursor: pointer;
+                        background-color: #FF3838;
+                        transition: all .4s ease;
+                        svg{
+                            color: transparent;
+                            path{
+                                stroke: #ffffff;
+                            }
+                        }
+                    }
                 }
             }
 
@@ -369,6 +403,45 @@
                     color: #FF8A00;
                 }
             }
+        }
+    }
+    .endingOrder{
+        padding-top: 45px;
+        display: flex;
+        flex-direction: column;
+        gap: 21px;
+        padding-bottom: 50px;
+        .allPrice,
+        .ourMoney,
+        .endPrice{
+            display: flex;
+            justify-content: space-between;
+            .title{
+                font-family: "Poppins-SemiBold";
+                font-size: 1.5625rem;
+                color: #000;
+            }
+            .price{
+                font-family: "Poppins-Medium";
+                font-size: 1.5625rem;
+                color: #FF8A00;
+            }
+        }
+    }
+    .chekout{
+        background-color: #3FC66E;
+        border-radius: 15px;
+        color: #fff;
+        font-family: "Poppins-SemiBold";
+        font-size: 1.5625rem;
+        padding: 15px 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover{
+            box-shadow: 0px 0px 15px #3FC66E;
+            cursor: pointer;
+            transition: all .4s ease;
         }
     }
 }
