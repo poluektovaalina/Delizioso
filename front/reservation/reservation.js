@@ -81,50 +81,15 @@ function formatTime(input) {
     return `${hours} часов ${minutes} минут`;
 }
 
-function showError(message) {
-    Swal.fire({
-        title: "Ошибка!",
-        text: message,
-        icon: "error"
-    });
-    return "Ошибка";
-}
 
-// Получаем элементы формы
-const reservationForm = document.getElementById('reservationForm');
-const modalFirstRev = document.querySelector('.modalFirstResv');
 
-reservationForm.addEventListener('submit', (e) => {
-    e.preventDefault();
 
-    const dateInput = document.querySelector('.reservationDate');
-    const timeInput = document.querySelector('.reservationTime');
-    const peopleInput = document.querySelector('.partySize');
+const modalFirstRev = document.querySelector('.modalFirstResv'); // Исправлено
+const bookButton = document.getElementById('reservationForm');
 
-    if (!dateInput || !timeInput) {
-        return showError("Ошибка в элементах формы");
-    }
-
-    const formattedDate = formatDate(dateInput.value);
-    const formattedTime = formatTime(timeInput.value);
-
-    if (formattedDate === "Ошибка" || formattedTime === "Ошибка") {
-        return;
-    }
-
-    dateInput.value = formattedDate;
-    timeInput.value = formattedTime;
-
-    // Обновляем модальное окно
-    const modalDate = document.querySelector('.modalFirstResv .date');
-    const modalTime = document.querySelector('.modalFirstResv .time');
-    const modalPeople = document.querySelector('.modalFirstResv .people');
-
-    if (modalDate) modalDate.textContent = formattedDate;
-    if (modalTime) modalTime.textContent = formattedTime;
-    if (modalPeople) modalPeople.textContent = peopleInput.value + " человек";
-
-    // Открываем модальное окно
+bookButton.addEventListener('submit', (e) => {
+    e.preventDefault()
+    console.log("Кнопка нажата"); 
     if (modalFirstRev) {
         modalFirstRev.classList.add('active'); // Открываем модальное окно
     } else {
@@ -140,3 +105,11 @@ reservationForm.addEventListener('submit', (e) => {
         return;
     }
 });
+
+confirmBtn.addEventListener('click', () =>{
+    modalFirstRev.classList.remove('active');
+    modalSecondResv.classList.add('active')
+})
+
+//НАЧИНАЙ ОТ СЮДА УДАЛЯЮ
+

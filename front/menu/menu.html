@@ -25,9 +25,9 @@
     }
   </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-white">
 
-  <header class="flex items-center justify-between px-10 py-8 bg-white shadow">
+  <header class="flex items-center justify-between px-10 py-8 bg-white">
     <div class="flex items-center space-x-4">
       <div class="p-2">
         <img class="w-10 h-10" src="../img/svg/Logo%20Delizioso.svg" alt="logo">
@@ -69,19 +69,59 @@
     <button class="bg-[#D0CCC7] rounded-full px-8 py-4 font-semibold">Drink</button>
   </div>
 
-  <div class="allFoods max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10 ">
-    
-    
+  <div class="container">
+
+    <div class="menuCatalog allFoods">
+      
+      
+    </div>
+    <div class="orderList">
+      <div class="orderBtnList">
+        Order list
+      </div>
+      <div class="groupCards">
+        <div class="itemCards">
+          <div class="groupClosed">
+            <div class="title">Spaghetti</div>
+            <div class="remove">
+              <img src="../img/svg/Remove.svg" alt="">
+            </div>
+          </div>
+          <div class="groupCounts">
+            <div class="counts">
+              <div class="minus"><img src="../img/svg/minus.svg" alt=""></div>
+              <div class="countNum">2</div>
+              <div class="plus"><img src="../img/svg/plus.svg" alt=""></div>
+            </div>
+            <div class="price">$24.1</div>
+          </div>
+        </div>
+      </div>
+      <div class="endingOrder">
+        <div class="allPrice">
+          <div class="title">Subtotal</div>
+          <div class="price">$78.3</div>
+        </div>
+        <div class="ourMoney">
+          <div class="title">Tax fee</div>
+          <div class="price">$3.5</div>
+        </div>
+        <div class="endPrice">
+          <div class="title">Total</div>
+          <div class="price">$76.8</div>
+        </div>
+      </div>
+    </div>
   </div>
 
 
-  <div class="flex justify-center space-x-2 mb-10">
-    <button class="px-4 py-2 bg-gray-400 text-gray-700 rounded"> &lt; </button>
-    <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded">1</button>
-    <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded">2</button>
-    <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded">3</button>
-    <span class="px-4 py-2">...</span>
-    <button class="px-4 py-2 bg-gray-400 text-gray-700 rounded"> &gt; </button>
+  <div class="next flex justify-center space-x-2 mb-10">
+    <button class="itemPrev px-4 py-2 bg-gray-400 text-gray-700 rounded"><img src="../img/svg/Rectangle 8-1.svg" alt=""></button>
+    <button class="numbers px-4 py-2 bg-gray-200 text-gray-700 rounded">1</button>
+    <button class="numbers px-4 py-2 bg-gray-200 text-gray-700 rounded">2</button>
+    <button class="numbers px-4 py-2 bg-gray-200 text-gray-700 rounded">3</button>
+    <span class="tRy px-4 py-2"><img src="../img/svg/Group 7.svg" alt=""></span>
+    <button class="itemNext px-4 py-2 bg-gray-400 text-gray-700 rounded"><img src="../img/svg/Rectangle 8.svg" alt=""></button>
   </div>
 
   <footer class="footer">
