@@ -14,34 +14,19 @@ function formatDate(input) {
         "июля", "августа", "сентября", "октября", "ноября", "декабря"
     ];
 
-    input = input.trim().replace(/,/g, ".").replace(/\s+/g, " ");
-    input = input.replace(/(\d)([а-я]+)/i, "$1 $2");
+    // Удаляем лишние пробелы
+    input = input.trim().replace(/\s+/g, " ");
 
     let parts;
 
-    // Формат: DD.MM.YYYY или DD.MM
-    if (/^\d{1,2}\.\d{1,2}(\.\d{4})?$/.test(input)) {
-        parts = input.split(".");
-        let day = parseInt(parts[0], 10);
-        let monthIndex = parseInt(parts[1], 10) - 1;
-        let year = parts[2] ? ` ${parts[2]} год` : "";
-
-        if (day < 1 || day > 31 || monthIndex < 0 || monthIndex > 11) {
-            return showError("Неверный формат даты");
-        }
-
-        return `${day} ${months[monthIndex]}${year}`;
-    }
-
     // Формат: DD Месяц YYYY или DD Месяц
-    else if (/^\d{1,2} [а-я]+( \d{4})?$/.test(input)) {
-        // Преобразуем месяц в нижний регистр
-        input = input.toLowerCase();
+    const regex = /^(\d{1,2})\s([а-я]+)(?:\s(\d{4}))?$/i;
+    const match = input.match(regex);
 
-        parts = input.split(" ");
-        let day = parseInt(parts[0], 10);
-        let monthIndex = months.indexOf(parts[1]);
-        let year = parts[2] ? ` ${parts[2]} год` : "";
+    if (match) {
+        let day = parseInt(match[1], 10);
+        let monthIndex = months.indexOf(match[2]);
+        let year = match[3] ? ` ${match[3]} год` : "";
 
         if (day < 1 || day > 31 || monthIndex === -1) {
             return showError("Неверный формат даты");
@@ -53,26 +38,30 @@ function formatDate(input) {
     return showError("Неверный формат даты");
 }
 
-function formatTime(input) {
-    input = input.replace(/\s+/g, "").replace(/[,\.]/g, ":");
 
-    const parts = input.split(":");
-    if (parts.length !== 2) {
+
+function formatTime(input) {
+    input = input.trim().replace(/\s+/g, "").replace(/[,\.]/g, ":");
+
+    const timeRegex = /^(\d{1,2}):(\d{2})$/;
+    const match = input.match(timeRegex);
+
+    if (!match) {
         Swal.fire({
             title: "Ошибка!",
-            text: "Неверный формат времени",
+            text: "Неверный формат времени. Используйте HH:MM",
             icon: "error"
         });
         return "Ошибка";
     }
 
-    let hours = parseInt(parts[0], 10);
-    let minutes = parseInt(parts[1], 10);
+    let hours = parseInt(match[1], 10);
+    let minutes = parseInt(match[2], 10);
 
-    if (isNaN(hours) || isNaN(minutes) || hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
+    if (hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
         Swal.fire({
             title: "Ошибка!",
-            text: "Неверный формат времени",
+            text: "Часы должны быть 0-23, минуты 0-59",
             icon: "error"
         });
         return "Ошибка";
@@ -83,33 +72,61 @@ function formatTime(input) {
 
 
 
+const reservationForm = document.getElementById('reservationForm');
 
-const modalFirstRev = document.querySelector('.modalFirstResv'); // Исправлено
-const bookButton = document.getElementById('reservationForm');
+const modal = document.querySelector('.modalFirstResv');
 
-bookButton.addEventListener('submit', (e) => {
-    e.preventDefault()
-    console.log("Кнопка нажата"); 
-    if (modalFirstRev) {
-        modalFirstRev.classList.add('active'); // Открываем модальное окно
-    } else {
-        console.error("Модальное окно не найдено");
+
+reservationForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const dateInput = document.querySelector('.reservationDate');
+    const timeInput = document.querySelector('.reservationTime');
+
+    if (!dateInput || !timeInput) {
+        return showError("Ошибка в элементах формы");
     }
 
-    if (!timeInput.value.trim()) {
-        Swal.fire({
-            title: "Ошибка!",
-            text: "Введите время!",
-            icon: "error"
-        });
+    const formattedDate = formatDate(dateInput.value);
+    const formattedTime = formatTime(timeInput.value);
+
+    if (formattedDate === "Ошибка" || formattedTime === "Ошибка") {
         return;
     }
+
+    dateInput.value = formattedDate;
+    timeInput.value = formattedTime;
+
+    const modalDate = document.querySelector('.modalFirstResv .date');
+    const modalTime = document.querySelector('.modalFirstResv .time');
+    const modalPeople = document.querySelector('.modalFirstResv .people');
+
+    if (modalDate && modalTime && modalPeople) {
+        modalDate.textContent = formattedDate;
+        modalTime.textContent = formattedTime;
+        modalPeople.textContent = `${document.querySelector('.partySize').value} человек`;
+    } else {
+        showError("Ошибка: элементы в модальном окне не найдены.");
+        return;
+    }
+
+    // Открываем модальное окно
+    modal.classList.add('active');
 });
 
-confirmBtn.addEventListener('click', () =>{
-    modalFirstRev.classList.remove('active');
-    modalSecondResv.classList.add('active')
-})
+// Закрываем модальное окно при клике на "крестик"
+
+
+
+function showError(message) {
+    Swal.fire({
+        title: "Ошибка!",
+        text: message,
+        icon: "error"
+    });
+    return "Ошибка";
+}
+
 
 //НАЧИНАЙ ОТ СЮДА УДАЛЯЮ
 
