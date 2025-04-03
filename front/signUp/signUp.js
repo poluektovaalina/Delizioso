@@ -44,6 +44,7 @@ document.querySelector('form').addEventListener('submit', async (event) => {
             text: `Регистрация прошла успешно`,
             icon: "success"
         });
+        window.location.href = '../signIn/signIn.html';
     } catch (error) {
         Swal.fire({
             title: "Ошибка!",

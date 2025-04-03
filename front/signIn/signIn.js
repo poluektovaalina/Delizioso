@@ -16,11 +16,17 @@ async function login(email, password) {
         const data = await response.json();
         console.log('Login successful:', data);
 
+        // Сохраняем email и имя в localStorage
+        localStorage.setItem('email', email);
+        localStorage.setItem('name', data.user.name);
+
+
         Swal.fire({
             title: "Добро пожаловать!",
             text: "Вы успешно вошли в систему",
             icon: "success"
         });
+
         window.location.href = '../homePage/homePage.html';
         return data;
     } catch (error) {
@@ -38,6 +44,7 @@ document.querySelector('form').addEventListener('submit', async (event) => {
     event.preventDefault();
     const email = document.querySelector('.email').value.trim();
     const password = document.querySelector('.password').value.trim();
+
     if (!email || !password) {
         Swal.fire({
             title: "Ошибка!",
@@ -46,5 +53,9 @@ document.querySelector('form').addEventListener('submit', async (event) => {
         });
         return;
     }
+
     await login(email, password);
 });
+
+
+
