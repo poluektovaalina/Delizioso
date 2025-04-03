@@ -131,29 +131,91 @@ document.querySelector('.aboutUs').addEventListener('click', () => {
 //НАЧИНАЙ ОТ СЮДА УДАЛЯЮ
 
 
+// Обработчик клика по кнопке Book now
+document.querySelector('.confirmBtn').addEventListener('click', (e) => {
+    e.preventDefault(); // Останавливаем стандартное поведение (отправку формы)
+
+    const firstName = document.querySelector('.modalFirstResv .firstName').textContent;
+    const lastName = document.querySelector('.modalFirstResv .lastName').textContent;
+    const phoneNumber = document.querySelector('.modalFirstResv .phoneNumber').textContent;
+    const email = document.querySelector('.modalFirstResv .email').value;
+    const occasion = document.querySelector('.modalFirstResv .accasion').value;
+    const specialRequest = document.querySelector('.modalFirstResv .request').value;
+    // Вызов функции для отправки запроса
+    setReservation(firstName, lastName, phoneNumber, email, occasion, specialRequest);
+});
+
 async function setReservation(firstName, lastName, phoneNumber, email, occasion, specialRequest) {
-    const reserv = await fetch('http://localhost:4000/api/reservationRoutes/reservations', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            firstName: document.querySelector('.modalFirstResv .firstName').textContent,
-            lastName: document.querySelector('.modalFirstResv .time').textContent,
-            phoneNumber: document.querySelector('.modalFirstResv .phoneNumber').textContent,
-            email: document.querySelector('.modalSecondResv .name').value,
-            occasion: document.querySelector('.modalSecondResv .email').value,
-            specialRequest: document.querySelector('.modalSecondResv .phone').value,
-        })
-    });
+    try {
+        // Отправка данных на сервер
+        const response = await fetch('http://localhost:4000/api/reservationRoutes/reservations', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                firstName: firstName,
+                lastName: lastName,
+                phoneNumber: phoneNumber,
+                email: email,
+                occasion: occasion,
+                specialRequest: specialRequest,
+            }),
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            Swal.fire({
+                title: "Отлично!",
+                text: `Бронирование прошло успешно! Ваши данные: ${data}`,
+                icon: "success",
+            });
+
+            document.querySelector('.modalFirstResv').classList.remove('active');
+            document.querySelector('.modalSecondResv').classList.add('active');
+        } else {
+            Swal.fire({
+                title: "Ошибка!",
+                text: data.message || "Не удалось выполнить бронирование.",
+                icon: "error",
+            });
+        }
+    } catch (error) {
+        Swal.fire({
+            title: "Ошибка!",
+            text: "Произошла ошибка при отправке данных.",
+            icon: "error",
+        });
+    }
 }
 
 
+function showError(message) {
+    Swal.fire({
+        title: "Ошибка!",
+        text: message,
+        icon: "error"
+    });
+}
+
+document.querySelector('.dataReservation').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const firstName = document.querySelector('.modalFirstResv .firstName').textContent;
+    const lastName = document.querySelector('.modalFirstResv .lastName').textContent;
+    const phoneNumber = document.querySelector('.modalFirstResv .phoneNumber').textContent;
+    const email = document.querySelector('.modalFirstResv .email').value;
+    const occasion = document.querySelector('.modalFirstResv .accasion').value;
+    const specialRequest = document.querySelector('.modalFirstResv .request').value;
+
+    setReservation(firstName, lastName, phoneNumber, email, occasion, specialRequest);
+});
 
 document.querySelector('.bookButton').addEventListener('click', () => {
     document.querySelector('.modalFirstResv').classList.add('active');
-})
+});
+
 document.querySelector('.confirmBtn').addEventListener('click', () => {
     document.querySelector('.modalFirstResv').classList.remove('active');
     document.querySelector('.modalSecondResv').classList.add('active');
-})
+});
