@@ -8,124 +8,124 @@ document.querySelector('.aboutUs').addEventListener('click', () => {
     window.location.href = '../aboutUs/aboutUs.html';
 });
 
-// function formatDate(input) {
-//     const months = [
-//         "января", "февраля", "марта", "апреля", "мая", "июня",
-//         "июля", "августа", "сентября", "октября", "ноября", "декабря"
-//     ];
+function formatDate(input) {
+    const months = [
+        "января", "февраля", "марта", "апреля", "мая", "июня",
+        "июля", "августа", "сентября", "октября", "ноября", "декабря"
+    ];
 
-//     // Удаляем лишние пробелы
-//     input = input.trim().replace(/\s+/g, " ");
+    // Удаляем лишние пробелы
+    input = input.trim().replace(/\s+/g, " ");
 
-//     let parts;
+    let parts;
 
-//     // Формат: DD Месяц YYYY или DD Месяц
-//     const regex = /^(\d{1,2})\s([а-я]+)(?:\s(\d{4}))?$/i;
-//     const match = input.match(regex);
+    // Формат: DD Месяц YYYY или DD Месяц
+    const regex = /^(\d{1,2})\s([а-я]+)(?:\s(\d{4}))?$/i;
+    const match = input.match(regex);
 
-//     if (match) {
-//         let day = parseInt(match[1], 10);
-//         let monthIndex = months.indexOf(match[2]);
-//         let year = match[3] ? ` ${match[3]} год` : "";
+    if (match) {
+        let day = parseInt(match[1], 10);
+        let monthIndex = months.indexOf(match[2]);
+        let year = match[3] ? ` ${match[3]} год` : "";
 
-//         if (day < 1 || day > 31 || monthIndex === -1) {
-//             return showError("Неверный формат даты");
-//         }
+        if (day < 1 || day > 31 || monthIndex === -1) {
+            return showError("Неверный формат даты");
+        }
 
-//         return `${day} ${months[monthIndex]}${year}`;
-//     }
+        return `${day} ${months[monthIndex]}${year}`;
+    }
 
-//     return showError("Неверный формат даты");
-// }
-
-
-
-// function formatTime(input) {
-//     input = input.trim().replace(/\s+/g, "").replace(/[,\.]/g, ":");
-
-//     const timeRegex = /^(\d{1,2}):(\d{2})$/;
-//     const match = input.match(timeRegex);
-
-//     if (!match) {
-//         Swal.fire({
-//             title: "Ошибка!",
-//             text: "Неверный формат времени. Используйте HH:MM",
-//             icon: "error"
-//         });
-//         return "Ошибка";
-//     }
-
-//     let hours = parseInt(match[1], 10);
-//     let minutes = parseInt(match[2], 10);
-
-//     if (hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
-//         Swal.fire({
-//             title: "Ошибка!",
-//             text: "Часы должны быть 0-23, минуты 0-59",
-//             icon: "error"
-//         });
-//         return "Ошибка";
-//     }
-
-//     return `${hours} часов ${minutes} минут`;
-// }
+    return showError("Неверный формат даты");
+}
 
 
 
-// const reservationForm = document.getElementById('reservationForm');
+function formatTime(input) {
+    input = input.trim().replace(/\s+/g, "").replace(/[,\.]/g, ":");
 
-// const modal = document.querySelector('.modalFirstResv');
+    const timeRegex = /^(\d{1,2}):(\d{2})$/;
+    const match = input.match(timeRegex);
 
+    if (!match) {
+        Swal.fire({
+            title: "Ошибка!",
+            text: "Неверный формат времени. Используйте HH:MM",
+            icon: "error"
+        });
+        return "Ошибка";
+    }
 
-// reservationForm.addEventListener('submit', (e) => {
-//     e.preventDefault();
+    let hours = parseInt(match[1], 10);
+    let minutes = parseInt(match[2], 10);
 
-//     const dateInput = document.querySelector('.reservationDate');
-//     const timeInput = document.querySelector('.reservationTime');
+    if (hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
+        Swal.fire({
+            title: "Ошибка!",
+            text: "Часы должны быть 0-23, минуты 0-59",
+            icon: "error"
+        });
+        return "Ошибка";
+    }
 
-//     if (!dateInput || !timeInput) {
-//         return showError("Ошибка в элементах формы");
-//     }
-
-//     const formattedDate = formatDate(dateInput.value);
-//     const formattedTime = formatTime(timeInput.value);
-
-//     if (formattedDate === "Ошибка" || formattedTime === "Ошибка") {
-//         return;
-//     }
-
-//     dateInput.value = formattedDate;
-//     timeInput.value = formattedTime;
-
-//     const modalDate = document.querySelector('.modalFirstResv .date');
-//     const modalTime = document.querySelector('.modalFirstResv .time');
-//     const modalPeople = document.querySelector('.modalFirstResv .people');
-
-//     if (modalDate && modalTime && modalPeople) {
-//         modalDate.textContent = formattedDate;
-//         modalTime.textContent = formattedTime;
-//         modalPeople.textContent = `${document.querySelector('.partySize').value} человек`;
-//     } else {
-//         showError("Ошибка: элементы в модальном окне не найдены.");
-//         return;
-//     }
-
-//     // Открываем модальное окно
-//     modal.classList.add('active');
-// });
-
-// // Закрываем модальное окно при клике на "крестик"
+    return `${hours} часов ${minutes} минут`;
+}
 
 
 
-// function showError(message) {
-//     Swal.fire({
-//         title: "Ошибка!",
-//         text: message,
-//         icon: "error"
-//     });
-//     return "Ошибка";
-// }
+const reservationForm = document.getElementById('reservationForm');
+
+const modal = document.querySelector('.modalFirstResv');
+
+
+reservationForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const dateInput = document.querySelector('.reservationDate');
+    const timeInput = document.querySelector('.reservationTime');
+
+    if (!dateInput || !timeInput) {
+        return showError("Ошибка в элементах формы");
+    }
+
+    const formattedDate = formatDate(dateInput.value);
+    const formattedTime = formatTime(timeInput.value);
+
+    if (formattedDate === "Ошибка" || formattedTime === "Ошибка") {
+        return;
+    }
+
+    dateInput.value = formattedDate;
+    timeInput.value = formattedTime;
+
+    const modalDate = document.querySelector('.modalFirstResv .date');
+    const modalTime = document.querySelector('.modalFirstResv .time');
+    const modalPeople = document.querySelector('.modalFirstResv .people');
+
+    if (modalDate && modalTime && modalPeople) {
+        modalDate.textContent = formattedDate;
+        modalTime.textContent = formattedTime;
+        modalPeople.textContent = `${document.querySelector('.partySize').value} человек`;
+    } else {
+        showError("Ошибка: элементы в модальном окне не найдены.");
+        return;
+    }
+
+    // Открываем модальное окно
+    modal.classList.add('active');
+});
+
+// Закрываем модальное окно при клике на "крестик"
+
+
+
+function showError(message) {
+    Swal.fire({
+        title: "Ошибка!",
+        text: message,
+        icon: "error"
+    });
+    return "Ошибка";
+}
 
 
 //НАЧИНАЙ ОТ СЮДА УДАЛЯЮ
@@ -156,4 +156,21 @@ document.querySelector('.bookButton').addEventListener('click', () => {
 document.querySelector('.confirmBtn').addEventListener('click', () => {
     document.querySelector('.modalFirstResv').classList.remove('active');
     document.querySelector('.modalSecondResv').classList.add('active');
+})
+
+document.querySelector('.closed').addEventListener('click', () =>{
+    document.querySelector('.modalFirstResv').classList.remove('active');
+})
+document.querySelector('.closedSec').addEventListener('click', () =>{
+    document.querySelector('.modalSecondResv').classList.remove('active');
+})
+
+document.querySelector('.stateAbove').addEventListener('click', () =>{
+    document.querySelector('.stateAbove').classList.toggle('activeAbove')
+})
+document.querySelector('.newsAbove').addEventListener('click', () =>{
+    document.querySelector('.newsAbove').classList.toggle('activeAbove')
+})
+document.querySelector('.newsRes').addEventListener('click', () =>{
+    document.querySelector('.newsRes').classList.toggle('activeAbove')
 })

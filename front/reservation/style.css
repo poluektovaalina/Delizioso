@@ -114,12 +114,40 @@
 
 .modalFirstResv{
     display: none;
-    
     .group{
+        .closed{
+            min-width: 80px;
+            min-height: 80px;
+            background-color: #fff;
+            display: flex;
+            left: 50%;
+            align-items: center;
+            transform: translateX(-50%);
+            justify-content: center;
+            position: absolute;
+            top: -110px;
+            border-radius: 50px;
+            transition: all .4s ease;
+            svg{
+                path{
+                    stroke: #000;
+                }
+            }
+            &:hover{
+                box-shadow: 0px 0px 15px #fff;
+                transition: all .4s ease;
+                cursor: pointer;
+                svg{
+                    path{
+                        stroke: #ff0000;
+                    }
+                }
+            }
+        }
         max-width: 1112px;
         background-color: #FFFFFF;
         position: absolute;
-        top: -50%;
+        top: -80%;
         left: 50%;
         transform: translate(-50%, 50%);
         z-index: 2;
@@ -287,6 +315,12 @@
     }
 }
 
+.activeAbove{
+    background-image: url(../img/svg/activeCheckbox.svg);
+    position: absolute;
+    background-repeat: no-repeat;
+
+}
 .agreements{
     display: flex;
     gap: 40px;
@@ -301,6 +335,8 @@
             display: flex;
             align-items: center;
             gap: 20px;
+            position: relative;
+            
             input {
                 outline: none;
                 border: 1px solid #311F09;
@@ -310,6 +346,11 @@
                 -webkit-appearance: none;
                 outline: none;
                 cursor: pointer;
+                .stateAbove,
+                .newsAbove,
+                .newsRes{
+                    position: relative;
+                }
             }
             span{
                color: #5C4529;
@@ -372,12 +413,41 @@
         max-width: 1112px;
         background-color: #FFFFFF;
         position: absolute;
-        top: 0%;
+        top: -60%;
         left: 50%;
         transform: translate(-50%, 50%);
         z-index: 2;
         padding: 60px 0;
         width: 100%;
+        .closedSec{
+            min-width: 80px;
+            min-height: 80px;
+            background-color: #fff;
+            display: flex;
+            left: 50%;
+            align-items: center;
+            transform: translateX(-50%);
+            justify-content: center;
+            position: absolute;
+            top: -110px;
+            border-radius: 50px;
+            transition: all .4s ease;
+            svg{
+                path{
+                    stroke: #000;
+                }
+            }
+            &:hover{
+                box-shadow: 0px 0px 15px #fff;
+                transition: all .4s ease;
+                cursor: pointer;
+                svg{
+                    path{
+                        stroke: #ff0000;
+                    }
+                }
+            }
+        }
         .head{
             display: flex;
             justify-content: space-between;

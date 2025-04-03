@@ -163,6 +163,23 @@
     padding-bottom: 211px;
 }   
 
+
+.catagory{ 
+    display: flex;
+    gap: 36px;
+    justify-content: center;
+    button{
+        font-family: "Poppins-SemiBold";
+        font-size: 1.25rem;
+        color: #311F09;
+        padding: 17px 54px;
+        background-color: #FAFAF9;
+        border-radius: 126px;
+        &:hover{
+            ba
+        }
+    }
+}
 .menuCatalog{
     padding-top: 116px;
     display: flex;
