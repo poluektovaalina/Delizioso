@@ -1,10 +1,10 @@
-const { Reservation } = require('../models/reservationModels');
+const Reservation = require('../models/reservationModels');
 
 // Создать новое бронирование
 exports.createReservation = async (req, res) => {
     try {
         const { firstName, lastName, phoneNumber, email, occasion, specialRequest } = req.body;
-        
+        console.log(req.body);
         const reservation = await Reservation.create({
             firstName,
             lastName,
