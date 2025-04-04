@@ -1,0 +1,198 @@
+@font-face {
+    font-family: "Roleway-Bold";
+    src: url(../font/Roleway/Raleway-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Roleway-Regular";
+    src: url(../font/Roleway/Raleway-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Poppins-Regular";
+    src: url(../font/Poppins/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Poppins-Medium";
+    src: url(../font/Poppins/Poppins-Medium.ttf);
+}
+
+@font-face {
+    font-family: "Poppins-SemiBold";
+    src: url(../font/Poppins/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "Poppins-LightItalic";
+    src: url(../font/Poppins/Poppins-LightItalic.ttf);
+}
+
+@font-face {
+    font-family: "Tinos-Bold";
+    src: url(../font/Tinos/Tinos-Bold.ttf);
+}
+
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 52px 13px;
+    .header-menu{
+        display: flex;
+        gap: 45px;
+        span{
+            font-family: "Poppins-Regular";
+            font-size: 0.875rem;
+            color: #311F09;
+            &:hover{
+                color: #FF8A00;
+                cursor: pointer;
+                transition: all .4s ease;
+            }
+        }
+    }
+    .leftGroup{
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        .cart{
+            background-color: #FAFAF9;
+            border-radius: 100%;
+            min-width: 40px;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .4s ease;
+            svg{
+                size: 24px;
+                fill: transparent;
+                
+                path{
+                    stroke: #311F09;
+                }
+                circle{
+                    stroke: #311F09;
+                }
+            }
+            &:hover{
+                transition: all .4s ease;
+                cursor: pointer;
+                background-color: #3FA72F;
+                box-shadow: 0px 0px 15px #3FA72F;
+                svg{
+                    size: 24px;
+                    fill: transparent;
+                    
+                    path{
+                        stroke: #fff;
+                    }
+                    circle{
+                        stroke: #fff;
+                    }
+                }
+            }
+        }
+        .logInbtnHome{
+            span{
+                padding: 15px 36px;
+                border-radius: 133px;
+                background-color: #3FA72F;
+                font-family: "Poppins-SemiBold";
+                color: #fff;
+                font-size: 0.875rem;
+                &:hover{
+                    cursor: pointer;
+                    transition: all .4s ease;
+                    box-shadow: 0px 0px 15px #3FA72F;
+                }
+            }
+        }
+    }
+}
+
+.headline{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 86px;
+    .title{
+        font-family: "Tinos-Bold";
+        color: #311F09;
+        font-size: 5rem;
+        padding-bottom: 36px;
+    }
+    .descCon{
+        font-family: "Poppins-Regular";
+        font-size: 1.5625rem;
+        color: #5C4529;
+        padding-bottom: 108px;
+        text-align: center;
+    }
+    .groupInputCon{
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        padding-bottom: 100px;
+        width: 100%;
+        .first{
+            display: flex;
+            gap: 32px;
+            .items{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 50px;
+                input{
+                    max-width: 704px;
+                    width: 100%;
+                    padding: 39px 80px;
+                    background-color: #FAFAF9;
+                    border-radius: 20px;
+                    outline: none;
+                    color: #A0978C;
+                    font-family: "Poppins-Regular";
+                    font-size: 1.5625rem;
+                }
+            }
+        }
+        .secondgroup{
+            position: relative;
+            textarea{
+                width: 100%;
+                padding: 39px 80px;
+                background-color: #FAFAF9;
+                border-radius: 20px;
+                outline: none;
+                color: #A0978C;
+                font-family: "Poppins-Regular";
+                font-size: 1.5625rem;
+                min-height: 385px;
+                height: auto;
+            }
+        }
+    }
+    .submit{
+        font-family: "Poppins-Regular";
+        font-size: 1.5625rem;
+        color: #fff;
+        background-color: #FF8A00;
+        border-radius: 20px;
+        padding: 36px 226px;
+        margin-bottom: 114px;
+    }
+}

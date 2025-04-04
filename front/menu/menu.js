@@ -17,6 +17,10 @@ document.querySelector('.admin').addEventListener('click', () => {
   window.location.href = '../admin/admin.html';
 });
 
+document.querySelector('.contactUs').addEventListener('click', () => {
+  window.location.href = '../contactUs/contactUs.html';
+})
+
 async function getAllDishes() {
   const allFoods = await fetch('http://localhost:4000/api/adminRoutes/getDishes');
   const allFoodsJson = await allFoods.json();

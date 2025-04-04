@@ -10,9 +10,9 @@ document.querySelector('.aboutUs').addEventListener('click', () => {
 document.querySelector('.reservation').addEventListener('click', () => {
   window.location.href = '../reservation/reservation.html';
 })
-// document.querySelector('.').addEventListener('click', () => {
-//   window.location.href = '';
-// })
+document.querySelector('.contactUs').addEventListener('click', () => {
+  window.location.href = '../contactUs/contactUs.html';
+})
 
 
 

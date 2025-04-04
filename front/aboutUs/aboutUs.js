@@ -1,11 +1,17 @@
 document.querySelector('.home').addEventListener('click', () => {
     window.location.href = '../homePage/homePage.html';
+});
+document.querySelector('.goMenu').addEventListener('click', () => {
+  window.location.href = '../menu/menu.html';
 })
-document.querySelector('.menu').addEventListener('click', () => {
-    window.location.href = '../menu/menu.html';
-})
+// document.querySelector('.orderOnline').addEventListener('click', () => {
+//   window.location.href = '';
+// })
 document.querySelector('.reservation').addEventListener('click', () => {
-    window.location.href = '../reservation/reservation.html';
+  window.location.href = '../reservation/reservation.html';
+})
+document.querySelector('.contactUs').addEventListener('click', () => {
+  window.location.href = '../contactUs/contactUs.html';
 })
 
 if (localStorage.getItem('email')) {

@@ -8,6 +8,10 @@ document.querySelector('.aboutUs').addEventListener('click', () => {
     window.location.href = '../aboutUs/aboutUs.html';
 });
 
+document.querySelector('.contactUs').addEventListener('click', () => {
+    window.location.href = '../contactUs/contactUs.html';
+  })
+
 function formatDate(input) {
     const months = [
         "января", "февраля", "марта", "апреля", "мая", "июня",
@@ -235,4 +239,22 @@ document.querySelector('.newsAbove').addEventListener('click', () =>{
 })
 document.querySelector('.newsRes').addEventListener('click', () =>{
     document.querySelector('.newsRes').classList.toggle('activeAbove')
+})
+
+document.querySelector('.modify').addEventListener('click', () => {
+    document.querySelector('.modalSecondResv').classList.remove('active');
+    document.querySelector('.modalFirstResv').classList.add('active');
+})
+
+document.querySelector('.close').addEventListener('click', () =>{
+    document.querySelector('.modalSecondResv').classList.remove('active');
+    document.querySelector('.modalClose').classList.add('active');
+})
+
+document.querySelector('.canselend').addEventListener('click', () =>{
+    document.querySelector('.modalClose').classList.remove('active');
+})
+
+document.querySelector('.closedClose').addEventListener('click', () => {
+    document.querySelector('.modalClose').classList.remove('active');
 })
