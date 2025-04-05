@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,13 +9,40 @@
   <script src="./admin.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <style>
-    .fade-in { animation: fadeIn 0.3s ease-out; }
-    .fade-out { animation: fadeOut 0.3s ease-out; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
-    .input-error { border-color: #e53e3e; }
+    .fade-in {
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .fade-out {
+      animation: fadeOut 0.3s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
+    }
+
+    .input-error {
+      border-color: #e53e3e;
+    }
   </style>
 </head>
+
 <body class="bg-gray-50">
   <header class="bg-white shadow">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
@@ -31,17 +59,22 @@
 
           <input type="text" id="dishName" placeholder="Dish Name" required class="dishName w-full border rounded p-2">
           <input type="text" id="dishPrice" placeholder="Price" required class="dishPrice w-full border rounded p-2">
-          <textarea id="dishDescription" placeholder="Description" required class="dishDescription w-full border rounded p-2"></textarea>
-          <input type="text" id="dishImageUrl" placeholder="Image URL" required class="dishImageUrl w-full border rounded p-2">
+          <textarea id="dishDescription" placeholder="Description" required
+            class="dishDescription w-full border rounded p-2"></textarea>
+          <input type="text" id="dishImageUrl" placeholder="Image URL" required
+            class="dishImageUrl w-full border rounded p-2">
           <div class="categories">
             <div class="title">Categories</div>
             <div class="groupCat">
-              <input type="radio" id="dinner" name="dinner" value="dinner">
-              <label for="dinner">dinner</label>
-              <input type="radio" id="lanch" name="lanch" value="lanch">
-              <label for="lanch">lanch</label>
-              <input type="radio" id="drinks" name="drinks" value="drinks">
-              <label for="drinks">drinks</label>
+              <input type="radio" id="dinner" name="category" value="dinner">
+              <label for="dinner">Dinner</label>
+              <input type="radio" id="lunch" name="category" value="lunch">
+              <label for="lunch">Lunch</label>
+              <input type="radio" id="dessert" name="category" value="dessert">
+              <label for="dessert">Dessert</label>
+              <input type="radio" id="drink" name="category" value="drink">
+              <label for="drink">Drink</label>
+
             </div>
           </div>
           <button type="submit" class="createDish w-full bg-[#FF8A00]  p-2 rounded">Add Dish</button>
@@ -61,16 +94,19 @@
       <h2 class="text-xl font-bold mb-4">Edit Dish</h2>
       <form id="editDishForm" class="space-y-4">
         <input type="text" id="editDishName" placeholder="Dish Name" required class="w-full border rounded p-2">
-        <textarea id="editDishDescription" placeholder="Description" required class="w-full border rounded p-2"></textarea>
-        <input type="number" id="editDishPrice" placeholder="Price"  class="w-full border rounded p-2">
+        <textarea id="editDishDescription" placeholder="Description" required
+          class="w-full border rounded p-2"></textarea>
+        <input type="number" id="editDishPrice" placeholder="Price" class="w-full border rounded p-2">
         <input type="text" id="editDishImageUrl" placeholder="Image URL" required class="w-full border rounded p-2">
         <div class="flex justify-end space-x-2">
           <button id="saveEditDish" type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Save</button>
-          <button type="button"  id="cancelEdit" class="cancelEdit bg-gray-500 text-white px-4 py-2 rounded">Cancel</button>
+          <button type="button" id="cancelEdit"
+            class="cancelEdit bg-gray-500 text-white px-4 py-2 rounded">Cancel</button>
         </div>
       </form>
     </div>
   </div>
 
 </body>
+
 </html>

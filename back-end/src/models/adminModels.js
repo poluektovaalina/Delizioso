@@ -20,8 +20,11 @@ const Dish = sequelize.define('Dish', {
   },
   imageUrl: {
     type: DataTypes.STRING(1000),
-
   },
+  category: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  }
 }, {
   tableName: 'dishes',
   timestamps: true,

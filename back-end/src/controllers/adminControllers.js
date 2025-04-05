@@ -24,39 +24,36 @@ exports.getDishById = async (req, res) => {
 
 exports.createDish = async (req, res) => {
   try {
-    console.log('Request body:', req.body); 
-    
-    const { name, description, price, imageUrl } = req.body;
-    console.log(name, description, price, imageUrl)
+    const { name, description, price, imageUrl, category } = req.body;
 
-   
-    if (!name || !price) {
-      return res.status(400).json({ message: 'Name and price are required' });
+    if (!name || !price || !category) {
+      return res.status(400).json({ message: 'Name, price and category are required' });
     }
 
     const newDish = await Dish.create({
       name,
       description,
-      price: parseFloat(price),  
-      imageUrl
+      price: parseFloat(price),
+      imageUrl,
+      category
     });
 
     res.status(201).json(newDish);
   } catch (error) {
-    console.error('Error creating dish:', error); 
+    console.error('Error creating dish:', error);
     res.status(500).json({ error: error.message });
   }
 };
 
-
 exports.updateDish = async (req, res) => {
   try {
-    const { id, name, description, price, imageUrl } = req.body;
+    const { id, name, description, price, imageUrl, category } = req.body;
     const dish = await Dish.findByPk(id);
     if (!dish) {
       return res.status(404).json({ message: 'Dish not found' });
     }
-    await dish.update({ name, description, price, imageUrl });
+
+    await dish.update({ name, description, price, imageUrl, category });
     res.json(dish);
   } catch (error) {
     res.status(500).json({ error: error.message });

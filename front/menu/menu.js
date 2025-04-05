@@ -28,13 +28,21 @@ async function getAllDishes() {
 }
 
 
-async function renderDishes() {
+async function renderDishes(category = 'All') {
   const dishes = await getAllDishes();
   const container = document.querySelector('.allFoods');
   container.innerHTML = '';
-  dishes.forEach(dish => {
-    container.innerHTML += `
-                  <div class="item">
+
+  const filtered = category === 'All'
+    ? dishes
+    : dishes.filter(dish => dish.category && dish.category.toLowerCase() === category.toLowerCase());
+
+  if (filtered.length === 0) {
+    container.innerHTML = '<p>No dishes available in this category.</p>';
+  } else {
+    filtered.forEach(dish => {
+      container.innerHTML += `
+        <div class="item">
                     <div class="imagge">
                         <img src="${dish.imageUrl}" alt="">
                     </div>
@@ -63,14 +71,16 @@ async function renderDishes() {
                     </div>
                     <div class="priceOrder">
                         <div class="price">$${dish.price}</div>
-                        <div class="btnOrder">
+                        <div class="btnOrder" data-button="${dish.id}">
                             Order now
                         </div>
                     </div>
                 </div>
-    `;
-  });
+      `;
+    });
+  }
 }
+
 
 document.querySelector('.container').addEventListener('click', (event) => {
   if (event.target.classList.contains('btnOrder')) {
@@ -82,6 +92,8 @@ document.querySelector('.container').addEventListener('click', (event) => {
     console.log(`ID из блока (data-id): ${parentDishId}`);
     if (parentItem) {
       parentItem.classList.add('activeCard');
+      button.style.backgroundColor = '#fff';
+      button.style.color = '#FF8A00';
     }
   }
 });
@@ -199,6 +211,244 @@ if (localStorage.getItem('email')) {
   logIn.replaceWith(userDiv);
 }
 
-if (!localStorage.getItem('email') == 'akbar@gmail.com') {
+if (localStorage.getItem('email') !== 'akbar@gmail.com') {
   document.querySelector('.admin').remove();
 }
+
+document.querySelectorAll('.categoryBtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const selectedCategory = btn.getAttribute('data-category');
+    renderDishes(selectedCategory);
+  });
+});
+
+if(!localStorage.getItem('email')) {
+  window.location.href = '../signIn/signIn.html';
+}
+
+document.querySelector('.container').addEventListener('click', async (event) => {
+  if (event.target.classList.contains('btnOrder')) {
+    const button = event.target;
+    const dishId = button.getAttribute('data-button');
+    const parentItem = button.closest('.item');
+    const dishName = parentItem.querySelector('.title').textContent;
+    const dishPrice = parseFloat(parentItem.querySelector('.price').textContent.replace('$', '').trim());
+    
+    // Проверка на наличие email (чтобы знать, кто заказывает)
+    const customerEmail = localStorage.getItem('email');
+    const customerName = localStorage.getItem('name');
+
+    if (!customerEmail) {
+      alert('Please log in to place an order!');
+      return;
+    }
+
+    // Отправка данных на сервер
+    const orderData = {
+      dishId: dishId,
+      name: dishName.trim(),
+      quantity: 1,  // Можно добавить поле для выбора количества
+      price: dishPrice,
+      customerName: customerName,
+      customerEmail: customerEmail,
+    };
+
+    try {
+      const response = await fetch('http://localhost:4000/api/orderRoutes/addOrder', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderData),
+      });
+
+      if (response.ok) {
+        const order = await response.json();
+        console.log('Order created:', order);
+        Swal.fire('Success!', 'Заказ создан!', 'success');
+      } else {
+        Swal.fire('Error!', 'Возникла проблема с оформлением вашего заказа.', 'error');
+      }
+    } catch (error) {
+      console.error('Error creating order:', error);
+      Swal.fire('Error!', 'Возникла проблема с оформлением вашего заказа.', 'error');
+    }
+  }
+});
+
+
+// Функция для получения заказов с бэкенда
+// Функция для получения заказов с бэкенда
+async function fetchOrders() {
+  try {
+    const response = await fetch('http://localhost:4000/api/orderRoutes/getOrders');
+    if (!response.ok) {
+      throw new Error('Не удалось загрузить заказы');
+    }
+    const orders = await response.json();
+    displayOrders(orders);
+    updateOrderTotals(orders);
+  } catch (error) {
+    console.error('Ошибка при получении заказов:', error);
+  }
+}
+
+// Функция для отображения заказов
+function displayOrders(orders) {
+  const groupCards = document.querySelector('.groupCards');
+  groupCards.innerHTML = ''; // Очищаем контейнер
+  
+  orders.forEach(order => {
+    const orderCard = document.createElement('div');
+    orderCard.classList.add('itemCards');
+    orderCard.setAttribute('data-order-id', order.id);
+    
+    orderCard.innerHTML = `
+      <div class="groupClosed">
+        <div class="title">${order.name.trim()}</div>
+        <div class="remove" data-order-id="${order.id}">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" 
+               xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 6V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V6" stroke-width="1.5"/>
+            <path d="M10 3H14" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M10 10L10 17" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M14 10L14 17" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M4 6H20" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="groupCounts">
+        <div class="counts">
+          <div class="minus">
+            <svg width="13" height="2" viewBox="0 0 13 2" fill="currentColor" 
+                 xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.634766 0.61969H11.4376" stroke-width="1.24648" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="countNum">${order.quantity}</div>
+          <div class="plus">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="currentColor" 
+                 xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.39648 6.61969H12.1993" stroke-width="1.24648" stroke-linecap="round"/>
+              <path d="M6.79688 1.21832L6.79687 12.0211" stroke-width="1.24648" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="price">$${(order.price * order.quantity).toFixed(2)}</div>
+      </div>
+    `;
+    
+    groupCards.appendChild(orderCard);
+  });
+  
+  addEventListeners(); // Добавляем обработчики после отрисовки
+  document.addEventListener('DOMContentLoaded', () => {
+    // Предположим, что orders уже определены или обновляются где-то
+    document.querySelectorAll('.btnOrder').forEach(button => {
+      button.addEventListener('click', () => {
+        displayOrders(orders);
+      });
+    });
+  });
+  
+  
+}
+
+// Функция для удаления заказа (через POST запрос)
+const deleteOrder = async (orderId) => {
+  try {
+    const response = await fetch('http://localhost:4000/api/orderRoutes/deleteOrder', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: orderId }),  // Отправляем только ID заказа
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+      console.log(result.message);  // Успешное удаление
+    } else {
+      const error = await response.json();
+      console.error('Ошибка:', error.message);  // Ошибка при удалении
+    }
+  } catch (error) {
+    console.error('Ошибка при удалении заказа:', error);
+  }
+};
+
+
+// Функция для добавления обработчиков событий на кнопки "удалить", "минус" и "плюс"
+function addEventListeners() {
+  // Обработчики для удаления заказа
+  document.querySelectorAll('.remove').forEach(button => {
+    button.addEventListener('click', async (event) => {
+      const orderId = event.target.closest('.remove').getAttribute('data-order-id');
+      await deleteOrder(orderId);
+      fetchOrders();
+    });
+  });
+
+  // Обработчики для уменьшения количества
+  document.querySelectorAll('.minus').forEach(button => {
+    button.addEventListener('click', async (event) => {
+      const orderId = event.target.closest('.itemCards').getAttribute('data-order-id');
+      await updateOrderQuantity(orderId, 'minus');
+      fetchOrders();
+    });
+  });
+
+  // Обработчики для увеличения количества
+  document.querySelectorAll('.plus').forEach(button => {
+    button.addEventListener('click', async (event) => {
+      const orderId = event.target.closest('.itemCards').getAttribute('data-order-id');
+      await updateOrderQuantity(orderId, 'plus');
+      fetchOrders();
+    });
+  });
+}
+
+// Функция для обновления количества заказа (через POST запрос)
+async function updateOrderQuantity(orderId, action) {
+  try {
+    const response = await fetch(`http://localhost:4000/api/orderRoutes/getOrder/${orderId}`);
+    if (!response.ok) {
+      throw new Error('Не удалось загрузить заказ');
+    }
+    const order = await response.json();
+    let newQuantity = order.quantity;
+    if (action === 'plus') {
+      newQuantity += 1;
+    } else if (action === 'minus' && newQuantity > 1) {
+      newQuantity -= 1;
+    }
+    const updateResponse = await fetch('http://localhost:4000/api/orderRoutes/updateOrder', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ orderId: orderId, quantity: newQuantity })
+    });
+    if (!updateResponse.ok) {
+      throw new Error('Не удалось обновить количество');
+    }
+    console.log('Количество обновлено');
+  } catch (error) {
+    console.error('Ошибка при обновлении количества:', error);
+  }
+}
+
+// Функция для подсчета итоговых сумм
+function updateOrderTotals(orders) {
+  let subtotal = 0;
+  orders.forEach(order => {
+    subtotal += order.price * order.quantity;
+  });
+  const taxFee = subtotal * 0.05;
+  const totalPrice = subtotal + taxFee;
+  document.querySelector('.allPrice .price').textContent = `$${subtotal.toFixed(2)}`;
+  document.querySelector('.ourMoney .price').textContent = `$${taxFee.toFixed(2)}`;
+  document.querySelector('.endPrice .price').textContent = `$${totalPrice.toFixed(2)}`;
+}
+
+// Изначальный вызов функции для загрузки заказов
+fetchOrders();
+

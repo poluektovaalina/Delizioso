@@ -4,7 +4,38 @@ async function getAllDishes() {
   return allFoodsJson;
 }
 
+function getSelectedCategory() {
+  const selectedRadio = document.querySelector('input[name="category"]:checked');
+  if (selectedRadio) {
+    console.log('Selected category:', selectedRadio.value);  // Для отладки
+    return selectedRadio.value;
+  }
+  return '';
+}
+
+
+async function updateDish(id) {
+  const category = getSelectedCategory();  // Получаем выбранную категорию
+  await fetch(`http://localhost:4000/api/adminRoutes/updateDish`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      id,
+      name: document.getElementById('editDishName').value,
+      description: document.getElementById('editDishDescription').value,
+      price: document.getElementById('editDishPrice').value,
+      imageUrl: document.getElementById('editDishImageUrl').value,
+      category  // Добавляем категорию
+    })
+  });
+  await refreshDishes();
+}
+
 async function createDish() {
+  const category = getSelectedCategory();  // Получаем выбранную категорию
+
   await fetch('http://localhost:4000/api/adminRoutes/createDish', {
     method: 'POST',
     headers: {
@@ -14,16 +45,19 @@ async function createDish() {
       name: document.getElementById('dishName').value,
       description: document.getElementById('dishDescription').value,
       price: document.getElementById('dishPrice').value,
-      imageUrl: document.getElementById('dishImageUrl').value
+      imageUrl: document.getElementById('dishImageUrl').value,
+      category  // Передаем категорию в запрос
     })
   });
-  await refreshDishes();
+
+  await refreshDishes();  // Обновляем список после добавления блюда
 }
 
 document.querySelector('form').addEventListener('submit', async (event) => {
   event.preventDefault();
   await createDish();
 });
+
 
 async function deleteDish(id) {
   await fetch(`http://localhost:4000/api/adminRoutes/deleteDish`, {
@@ -36,22 +70,8 @@ async function deleteDish(id) {
   await refreshDishes();
 }
 
-async function updateDish(id) {
-  await fetch(`http://localhost:4000/api/adminRoutes/updateDish`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      id,
-      name: document.getElementById('editDishName').value,
-      description: document.getElementById('editDishDescription').value,
-      price: document.getElementById('editDishPrice').value,
-      imageUrl: document.getElementById('editDishImageUrl').value
-    })
-  });
-  await refreshDishes();
-}
+
+
 
 async function refreshDishes() {
   const allFoods = await getAllDishes();
@@ -66,6 +86,7 @@ function createDishCard(dish) {
       <h3 class="text-xl font-bold text-gray-900">${dish.name}</h3>
       <p class="text-gray-700">${dish.description}</p>
       <p class="text-gray-900 font-semibold">Price: $${dish.price}</p>
+      <p class="text-sm text-indigo-600 font-semibold">Category: ${dish.category || 'N/A'}</p>
       <img src="${dish.imageUrl}" alt="${dish.name}" class="w-full h-40 object-cover rounded-md mb-4"/>
 
       <div class="flex space-x-2 mt-2">
@@ -82,7 +103,6 @@ function createDishCard(dish) {
   `;
 }
 
-
 function openEditModal(id, name, description, price, imageUrl) {
   document.getElementById('editDishName').value = name;
   document.getElementById('editDishDescription').value = description;
@@ -97,7 +117,6 @@ function openEditModal(id, name, description, price, imageUrl) {
 
 document.querySelector('.cancelEdit').addEventListener('click', () => {
   document.getElementById('editModal').classList.add('hidden');
-})
-
+});
 
 refreshDishes();

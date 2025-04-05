@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Delizioso Menu</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="./menu.js" defer></script>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="../style.css">
@@ -62,11 +63,11 @@
   </div>
 
   <div class="catagory flex justify-center gap-4 mb-10">
-    <button class="bg-[#311F09] rounded-full px-8 py-4 text-white font-semibold allCategory">All category</button>
-    <button class="bg-[#D0CCC7] rounded-full px-8 py-4 font-semibold">Dinner</button>
-    <button class="bg-[#D0CCC7] rounded-full px-8 py-4 font-semibold">Lunch</button>
-    <button class="bg-[#D0CCC7] rounded-full px-8 py-4 font-semibold">Dessert</button>
-    <button class="bg-[#D0CCC7] rounded-full px-8 py-4 font-semibold">Drink</button>
+    <button class="bg-[#311F09] rounded-full px-8 py-4 text-white font-semibold categoryBtn" data-category="All">All category</button>
+    <button class="bg-[#D0CCC7] rounded-full px-8 py-4 font-semibold categoryBtn" data-category="Dinner">Dinner</button>
+    <button class="bg-[#D0CCC7] rounded-full px-8 py-4 font-semibold categoryBtn" data-category="Lunch">Lunch</button>
+    <button class="bg-[#D0CCC7] rounded-full px-8 py-4 font-semibold categoryBtn" data-category="Dessert">Dessert</button>
+    <button class="bg-[#D0CCC7] rounded-full px-8 py-4 font-semibold categoryBtn" data-category="Drink">Drink</button>
   </div>
 
   <div class="container">
