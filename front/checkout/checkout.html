@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./checkout.js" defer></script>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        @font-face {
+            font-family: "Roleway-Bold";
+            src: url(../font/Roleway/Raleway-Bold.ttf);
+        }
+
+        @font-face {
+            font-family: "Roleway-Regular";
+            src: url(../font/Roleway/Raleway-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: "Poppins-Regular";
+            src: url(../font/Poppins/Poppins-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: "Poppins-Medium";
+            src: url(../font/Poppins/Poppins-Medium.ttf);
+        }
+
+        @font-face {
+            font-family: "Poppins-SemiBold";
+            src: url(../font/Poppins/Poppins-SemiBold.ttf);
+        }
+
+        @font-face {
+            font-family: "Poppins-LightItalic";
+            src: url(../font/Poppins/Poppins-LightItalic.ttf);
+        }
+
+        @font-face {
+            font-family: "Tinos-Bold";
+            src: url(../font/Tinos/Tinos-Bold.ttf);
+        }
+
+        @keyframes coolHoverAnimation {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1) rotate(5deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        .hover\:animate-cool:hover {
+            animation: coolHoverAnimation 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="../img/svg/LogoDeliziosoFull.svg" alt="">
+            </div>
+            <nav class="flex items-center gap-8 text-gray-700 font-semibold">
+                <span
+                    class="text-[#FF8A00] transition transform duration-300 hover:text-[#FF8A00] hover:animate-cool  home">Home</span>
+                <span
+                    class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer goMenu">Menu</span>
+                <span
+                    class="transition transform duration-300 cursor-pointer hover:scale-105 cursor-pointer aboutUs">About
+                    us</span>
+                <span
+                    class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer orderOnline">Order
+                    online</span>
+                <span
+                    class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer reservation">Reservation</span>
+                <span
+                    class="transition transform duration-300 hover:text-[#FF8A00] hover:scale-105 cursor-pointer contactUs">Contact
+                    us</span>
+            </nav>
+            <div class="leftGroup">
+                <div class="cart">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5.5 5.92H19.7558C20.3947 5.92 20.8698 6.51108 20.7324 7.13511L19.6915 11.8604C19.2876 13.6941 17.6628 15 15.7852 15H9.54507C8.07693 15 6.82447 13.9375 6.58518 12.489L5.5 5.92ZM5.5 5.92L4.96302 4.35201C4.68606 3.54329 3.92573 3 3.0709 3H3"
+                            stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M18 18H7.5C6.67157 18 6 17.3284 6 16.5V16.5C6 15.6716 6.67157 15 7.5 15H10"
+                            stroke-width="1.5" stroke-linecap="round" />
+                        <circle cx="8" cy="20" r="1.25" stroke-width="1.5" />
+                        <circle cx="16" cy="20" r="1.25" stroke-width="1.5" />
+                    </svg>
+                </div>
+                <div class="logInbtnHome">
+                    <span>Log in</span>
+                    <span>Admin Panel</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+    <div class="checkout">
+        <div class="title">
+            <div class="imgPrev">
+                <svg width="14" height="25" viewBox="0 0 14 25" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.793 1.46287L1.80172 12.4541L12.793 23.4453" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <span>Checkout</span>
+        </div>
+        <div class="groupAddress">
+            <div class="title">
+                Shipping address
+            </div>
+            <div class="groupIndex">
+                <input type="text" placeholder="1131 Ogden Ave, Bronx, NY 10452, Amerika Serikat" >
+                <span class="change" >Change</span>
+            </div>
+        </div>
+        <div class="dataOrder">
+            <div class="title">Order data</div>
+            <form id="dataorder" class="dataReservation">
+                <div class="first">
+                    <input type="text" placeholder="First name" class="firstName">
+                    <div class="country">
+                        <div class="imgCountry">
+                            <img src="../img/svg/Flag.svg" alt="">
+                        </div>
+                    </div>
+                    <input type="number" placeholder="Phone number" class="phoneNumber">
+                    <input type="text" placeholder="Select an accasion" class="accasion">
+                </div>
+                <div class="second">
+                    <input type="text" placeholder="Last name" class="lastName">
+                    <input type="text" placeholder="Email address" class="email">
+                    <input type="text" placeholder="Add a special request" class="request">
+                </div>
+        </div>
+        <div class="groupOrder">
+            <div class="title">Order time</div>
+            <div class="groupRadio">
+                <div class="item">
+                    <input type="radio" name="" id="" class="Order">
+                    <span>Order now</span>
+                </div>
+                <div class="item">
+                    <input type="radio" name="" id="" class="Order">
+                    <span>Order later</span>
+                    <div class="imgArrow">
+                        <img src="../img/svg/arrowCountry.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="groupMethod">
+            <div class="title">Order method</div>
+            <div class="groupRadio">
+                <div class="item">
+                    <input type="radio" name="" id="" class="Delivery">
+                    <span>Delivery</span>
+                </div>
+                <div class="item">
+                    <input type="radio" name="" id="" class="Delivery">
+                    <span>Take a way</span>
+                </div>
+            </div>
+        </div>
+        <div class="groupPayment">
+            <div class="title">Payment method</div>
+            <div class="groupRadio">
+                <div class="item">
+                    <input type="radio" name="" id="" class="Cash">
+                    <span>Cash On Delivery</span>
+                </div>
+                <div class="item">
+                    <input type="radio" name="" id="" class="Cash">
+                    <span>BCA Virtual Account</span>
+                </div>
+                <div class="item">
+                    <input type="radio" name="" id="" class="Cash">
+                    <span>Credit Card</span>
+                </div>
+                <div class="item">
+                    <input type="radio" name="" id="" class="Cash">
+                    <span>Transfer Bank</span>
+                </div>
+            </div>
+        </div>
+        <div class="agree">
+            <input type="checkbox" name="" id="" class="choose">
+            <span>Choose to indicate that you have read and agree to our Terms of use<br>& Privacy Policy.</span>
+        </div>
+        <div class="orderBtn">
+            <span>
+                Order now
+            </span>
+        </div>
+    </div>
+
+    <div class="modalShippingAddress">
+        <div class="groupShipping">
+            <div class="closedModal">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 0.999969L0.99995 21"  stroke-width="2" stroke-linecap="round"/>
+                    <path d="M21 21.0001L0.999951 1.00001"  stroke-width="2" stroke-linecap="round"/>
+                </svg>                    
+            </div>
+            <div class="head">
+                <div class="logo">
+                    <img src="../img/svg/LogoDeliziosoFull.svg" alt="">
+                </div>
+                <div class="groupBtn">
+                    <div class="span">
+                        Sign in
+                    </div>
+                    <div class="span">
+                        Sign up
+                    </div>
+                </div>
+            </div>
+            <div class="groupInput">
+                <div class="title">
+                    Shipping address
+                </div>
+                <div class="groupAddress">
+                    <div class="groupIndex">
+                        <input type="text" placeholder="Please type your address">
+                        <span>Search</span>
+                    </div>
+                </div>
+                <div class="currentLoc">
+                    <div class="imagge">
+                        <img src="../img/svg/Subtract.svg" alt="">
+                    </div>
+                    <span>Use your current location</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+            <div class="container">
+            <div class="together">
+                <div class="firstGroup">
+                    <div class="logo">
+                        <img src="../img/svg/LogoDeliziosoWhite.svg" alt="">
+                    </div>
+                    <div class="desc">
+                        Viverra gravida morbi egestas facilisis tortor netus non duis tempor.
+                    </div>
+                    <div class="social">
+                        <div class="twitter">
+                            <img src="../img/svg/twitter.svg" alt="">
+                        </div>
+                        <div class="inst">
+                            <img src="../img/svg/instagram.svg" alt="">
+                        </div>
+                        <div class="Fakebo">
+                            <img src="../img/svg/facebook.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="SecondGroup">
+                    <div class="groupText">
+                        <div class="title">Page</div>
+                        <div class="group">
+                            <span>Home</span>
+                            <span>Menu</span>
+                            <span>Order online</span>
+                            <span>Catering</span>
+                            <span>Reservation</span>
+                        </div>
+                    </div>
+                    <div class="groupText">
+                        <div class="title">Information</div>
+                        <div class="group">
+                            <span>About us</span>
+                            <span>Testimonial</span>
+                            <span>Event</span>
+                        </div>
+                    </div>
+                    <div class="groupText">
+                        <div class="title">Get in touch</div>
+                        <div class="group">
+                            <span>3247 Johnson Ave, Bronx, NY<br>10463, Amerika Serikat</span>
+                            <span>delizioso@gmail.com</span>
+                            <span>+123 4567 8901</span>
+                            <span>Catering</span>
+                            <span>Reservation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="TherdGroup">
+                <span>Copyright</span>
+                <div class="imgC">
+                    <img src="../img/svg/Icon.svg" alt="">
+                </div>
+                <span>2022 Delizioso</span>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>

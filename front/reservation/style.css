@@ -48,9 +48,36 @@
     }
 }
 
+.imagge{
+    position: relative;
+    /* &::after{
+        position: absolute;
+        content: " ";
+        height: 829px;
+        width: 634px;
+        background-color: #fbfafa;
+        left: -22%;
+        transform: translateX(-49%);
+
+    }
+    &::before{
+        position: absolute;
+        content: " ";
+        height: 667px;
+        width: 634px;
+        background-color: #f2f1f0;
+        left: -22%;
+        top: 81px;
+        z-index: 1;
+        transform: translateX(-49%);
+
+    } */
+}
+
 .onlyOne{
     .block{
         display: flex;
+        padding-bottom: 201px;
         .imagee{
             width: 50%;
             img{
@@ -682,7 +709,7 @@
         max-width: 1112px;
         background-color: #FFFFFF;
         position: absolute;
-        top: -46%;
+        top: -35%;
         left: 50%;
         transform: translate(-50%, 50%);
         z-index: 2;
