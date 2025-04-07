@@ -21,6 +21,25 @@
     window.location.href = '../contactUs/contactUs.html';
   })
 
+  document.querySelector('.Menu').addEventListener('click', () => {
+    window.location.href = '../menu/menu.html';
+  })
+  document.querySelector('.Home').addEventListener('click', () => {
+    window.location.href = '../homePage/homePage.html';
+  })
+  document.querySelector('.Catering').addEventListener('click', () => {
+    window.location.href = '../menu/menu.html';
+  })
+  document.querySelector('.Reservation').addEventListener('click', () => {
+    window.location.href = '../reservation/reservation.html';
+  })
+  document.querySelector('.About').addEventListener('click', () => {
+    window.location.href = '../aboutUs/aboutUs.html';
+  })
+  document.querySelector('.chekout').addEventListener('click', () => {
+    window.location.href = '../chekout/chekout.html';
+  })
+
   async function getAllDishes() {
     const allFoods = await fetch('http://localhost:4000/api/adminRoutes/getDishes');
     const allFoodsJson = await allFoods.json();

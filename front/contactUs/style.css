@@ -194,5 +194,11 @@
         border-radius: 20px;
         padding: 36px 226px;
         margin-bottom: 114px;
+        transition: all .4s ease;
+        &:hover{
+            cursor: pointer;
+            box-shadow: 0px 0px 15px #FF8A00;
+            transition: all .4s ease;
+        }
     }
 }

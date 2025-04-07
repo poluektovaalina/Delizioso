@@ -251,6 +251,12 @@
                 width: max-content;
                 border-radius: 162px;
                 margin-top: 82px;
+                transition: all .4s ease;
+                &:hover{
+                    box-shadow: 0px 0px 15px #FF8A00;
+                    cursor: pointer;
+                    transition: all .4s ease;
+                }
             }
         }
     }
@@ -281,6 +287,12 @@
             padding: 17px 54px;
             background-color: #FAFAF9;
             border-radius: 126px;
+            transition: all .4s ease;
+            &:hover{
+                box-shadow: 0px 0px 15px #bebe8a;
+                cursor: pointer;
+                transition: all .4s ease;
+            }
         }
     }
     .menuCatalog{
@@ -485,6 +497,12 @@
             background-color: #FF8A00;
             display: flex;
             border-radius: 162px;
+            transition: all .4s ease;
+            &:hover{
+                box-shadow: 0px 0px 15px #FF8A00;
+                cursor: pointer;
+                transition: all .4s ease;
+            }
         }
     }
 }
@@ -555,6 +573,7 @@
         padding: 17px 78px;
         font-family: "Poppins-SemiBold";
         margin: 150px 0px 271px 0;
+        display: none;
     }
 }
 
@@ -801,6 +820,12 @@
                     color: #FF8A00;
                     font-family: "Poppins-SemiBold";
                     font-size: 1.5625rem;
+                    cursor: pointer;
+                    transition: all .4s ease;
+                        &:hover{
+                            color: #3FA72F;
+                            transition: all .4s ease;
+                        }
                 }
                 .group{
                     display: flex;
@@ -809,7 +834,13 @@
                     span{
                         font-family: "Poppins-Regular";
                         color: #E3E2E0;
-                        font-size: 1.25rem
+                        font-size: 1.25rem;
+                        cursor: pointer;
+                        transition: all .4s ease;
+                        &:hover{
+                            color: #c46800;
+                            transition: all .4s ease;
+                        }
                     }
                 }
             }

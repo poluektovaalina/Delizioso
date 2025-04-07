@@ -192,6 +192,12 @@
                     color: #FF8A00;
                     font-family: "Poppins-SemiBold";
                     font-size: 1.5625rem;
+                    cursor: pointer;
+                    transition: all .4s ease;
+                        &:hover{
+                            color: #3FA72F;
+                            transition: all .4s ease;
+                        }
                 }
                 .group{
                     display: flex;
@@ -200,7 +206,13 @@
                     span{
                         font-family: "Poppins-Regular";
                         color: #E3E2E0;
-                        font-size: 1.25rem
+                        font-size: 1.25rem;
+                        cursor: pointer;
+                        transition: all .4s ease;
+                        &:hover{
+                            color: #c46800;
+                            transition: all .4s ease;
+                        }
                     }
                 }
             }
