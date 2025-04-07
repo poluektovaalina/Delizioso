@@ -7,6 +7,7 @@ const userRoutes = require('./src/routes/userRoutes.js')
 const adminRoutes = require('./src/routes/adminRoutes.js')
 const reservationRoutes = require('./src/routes/reservationRoutes.js')
 const orderRoutes = require('./src/routes/orderRoutes.js')
+const contactRoutes = require('./src/routes/contactRoutes.js')
 
 
 const app = express()
@@ -21,6 +22,7 @@ app.use('/api/userRoutes', userRoutes)
 app.use('/api/adminRoutes', adminRoutes)
 app.use('/api/reservationRoutes', reservationRoutes)
 app.use('/api/orderRoutes', orderRoutes)
+app.use('/api/contactRoutes', contactRoutes)
 
 const PORT = process.env.PORT || 3000
 

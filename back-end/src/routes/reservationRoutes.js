@@ -11,4 +11,6 @@ router.get('/reservations', reservationController.getAllReservations);
 // Маршрут для получения бронирования по ID
 router.get('/reservations/:id', reservationController.getReservationById);
 
+router.post('/deleteReservation', reservationController.deleteReservation);
+
 module.exports = router;
